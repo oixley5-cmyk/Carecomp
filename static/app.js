@@ -977,6 +977,10 @@ function initEventHandlers() {
 // INITIALIZATION
 // ==============================================================================
 
+// Expose to window scope for inline HTML handlers
+window.openBookModal = openBookModal;
+window.closeModals = closeModals;
+
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initEventHandlers();
