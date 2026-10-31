@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d3b36">
+  <title>CareCompare AI &mdash; Know Your Healthcare Options Before You Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Manrope:wght@400..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+  <!-- Top Transparency Notice Banner -->
+  <div class="announcement-banner">
+    <div class="announcement-content">
+      <span class="pulse-dot"></span>
+      <strong>TRANSPARENT &amp; VERIFIED HEALTHCARE DATA</strong>
+      <span class="sep">Â·</span>
+      <span>CMS Price Transparency Mandate Files (MRF 2026)</span>
+      <span class="sep">Â·</span>
+      <span>Zero Paid Advertising Bias</span>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="CareCompare AI Home">
+        <div class="brand-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          CareCompare<span class="brand-ai">AI</span>
+          <span class="brand-badge">V2.0</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="main-nav">
+        <button class="nav-tab active" data-tab="search-tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Find &amp; Compare Clinics</span>
+        </button>
+        <button class="nav-tab highlighted-tab" data-tab="appointments-tab" id="nav-appointments-tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>My Appointments &amp; Insurance</span>
+          <span class="tab-counter" id="appointment-badge">3</span>
+        </button>
+        <button class="nav-tab" data-tab="calculator-tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          <span>Cost Calculator</span>
+        </button>
+        <button class="nav-tab" data-tab="bills-tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+          <span>Bill &amp; EOB Tracker</span>
+        </button>
+        <button class="nav-tab" data-tab="assistant-tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>AI Advisor</span>
+        </button>
+      </nav>
+
+      <div class="header-user-status">
+        <span class="insurance-pill-active">
+          <span class="status-indicator-green"></span>
+          <span>Horizon BCBS Active</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ==================================================================== -->
+    <!-- TAB 1: HEALTHCARE SEARCH & CLINIC LOCATOR -->
+    <!-- ==================================================================== -->
+    <section class="tab-pane active" id="search-tab">
+      
+      <!-- Hero Header -->
+      <section class="hero-section">
+        <div class="hero-wrapper">
+          <div class="hero-badge">
+            <span class="badge-icon">âœ“</span>
+            <span>VERIFIED CLINIC LOCATOR &amp; TREATMENT RECOGNITION</span>
+          </div>
+          <h1 class="hero-title">
+            Know your healthcare options.<br>
+            <span class="highlight">Compare costs with verified confidence.</span>
+          </h1>
+          <p class="hero-desc">
+            Enter your ZIP code to find nearby licensed clinics. Type any treatmentâ€”from blood work and metabolic panels to ultrasounds, X-rays, and MRIsâ€”with automated CPT matching and insurance rates.
+          </p>
+
+          <!-- Quick Example Chips -->
+          <div class="treatment-quick-chips">
+            <span class="chip-label">Quick search:</span>
+            <button class="quick-chip" data-search="blood test" data-zip="08540">ðŸ©¸ Blood Test (CBC)</button>
+            <button class="quick-chip" data-search="cholesterol" data-zip="08540">â¤ï¸ Cholesterol / Lipid</button>
+            <button class="quick-chip" data-search="chest xray" data-zip="08540">ðŸ« Chest X-Ray</button>
+            <button class="quick-chip" data-search="abdominal ultrasound" data-zip="08540">ðŸ“¡ Abdominal Ultrasound</button>
+            <button class="quick-chip" data-search="brain mri" data-zip="08540">ðŸ§  Brain MRI</button>
+            <button class="quick-chip" data-search="diabetes a1c" data-zip="08540">ðŸ§ª Hemoglobin A1c</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Search Panel -->
+      <section class="search-container">
+        <div class="search-card">
+          <form id="search-form" class="search-form" onsubmit="return false;">
+            
+            <!-- Treatment Input with Auto-Recognition -->
+            <div class="form-group form-treatment">
+              <label for="treatment-input" class="form-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                Medical Treatment / Test
+              </label>
+              <div class="input-with-icon">
+                <input 
+                  type="text" 
+                  id="treatment-input" 
+                  placeholder="Type any test (e.g. CBC, MRI, Ultrasound, Cholesterol, X-Ray)" 
+                  autocomplete="off"
+                  value=""
+                >
+                <button type="button" class="clear-btn hidden" id="clear-treatment" aria-label="Clear treatment">Ã—</button>
+              </div>
+              <div class="recognition-pill-row" id="recognition-pill-row"></div>
+            </div>
+
+            <!-- ZIP Code / Location Input -->
+            <div class="form-group form-zip">
+              <label for="zip-input" class="form-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                ZIP Code or City
+              </label>
+              <div class="input-with-icon">
+                <input 
+                  type="text" 
+                  id="zip-input" 
+                  placeholder="e.g. 08540, 08648, 08901" 
+                  value="08540" 
+                  maxlength="20"
+                >
+              </div>
+              <small class="location-resolved" id="location-display">ðŸ“ Princeton, NJ (08540)</small>
+            </div>
+
+            <!-- Service Category Filter -->
+            <div class="form-group form-category">
+              <label for="category-select" class="form-label">Service Category</label>
+              <select id="category-select">
+                <option value="all">All Care Categories</option>
+                <option value="Lab tests">Lab Tests &amp; Blood Work</option>
+                <option value="Imaging">Diagnostic Imaging &amp; Scans</option>
+              </select>
+            </div>
+
+            <!-- Insurance Carrier Selector -->
+            <div class="form-group form-insurance">
+              <label for="insurance-select" class="form-label">Health Insurance</label>
+              <select id="insurance-select">
+                <option value="Blue Cross Blue Shield" selected>Blue Cross Blue Shield (Horizon)</option>
+                <option value="Aetna">Aetna (Choice POS II / Open)</option>
+                <option value="Cigna">Cigna (Open Access Plus)</option>
+                <option value="UnitedHealthcare">UnitedHealthcare (Choice Plus)</option>
+                <option value="">Uninsured / Self-Pay Cash</option>
+              </select>
+            </div>
+
+            <!-- Search Action Button -->
+            <div class="form-group form-submit">
+              <button type="button" id="search-btn" class="btn btn-primary btn-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <span>Search Clinics</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Treatment Recognition & Clinical Order Requirement Alert Banner -->
+          <div class="treatment-intel-card hidden" id="treatment-intel-card">
+            <div class="intel-header">
+              <div class="intel-code-badge" id="intel-cpt">CPT CODE</div>
+              <div class="intel-title-block">
+                <h4 id="intel-name">Recognized Medical Service</h4>
+                <p id="intel-desc">Standardized clinical description</p>
+              </div>
+              <div class="intel-prep-badge" id="intel-order-badge">Doctor's Order Required</div>
+            </div>
+            <div class="intel-body">
+              <div class="intel-prep-box">
+                <strong>Clinical Preparation:</strong>
+                <span id="intel-prep">Preparation instructions</span>
+              </div>
+              <div class="intel-order-box">
+                <strong>Referral / Script Status:</strong>
+                <span id="intel-order-note">Order notes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Filter & Sort Toolbar -->
+          <div class="search-toolbar">
+            <div class="toolbar-stats">
+              <span class="stats-counter" id="results-count">Locating clinicsâ€¦</span>
+              <span class="toolbar-sep">|</span>
+              <span class="location-context" id="location-subtext">Calculating distances from 08540</span>
+            </div>
+
+            <div class="toolbar-controls">
+              <label for="sort-select" class="sort-label">Sort by:</label>
+              <select id="sort-select" class="sort-select">
+                <option value="cost">Lowest In-Network Cost</option>
+                <option value="distance">Closest Distance (Miles)</option>
+                <option value="appointment">Earliest Verified Appointment</option>
+                <option value="network">Verified In-Network First</option>
+              </select>
+
+              <button class="btn btn-outline btn-sm" id="open-compare-btn" disabled>
+                <span>Compare Selected (<span id="compare-count">0</span>)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Provider Results Grid -->
+      <section class="results-section">
+        <div class="provider-grid" id="provider-grid">
+          <!-- Dynamically populated provider cards -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state hidden" id="empty-state">
+          <div class="empty-icon">ðŸ“</div>
+          <h3>No matching clinics found</h3>
+          <p>Try searching for a different medical test (e.g. "blood test" or "ultrasound") or adjust your ZIP code location.</p>
+          <button class="btn btn-secondary" id="reset-search-btn">Reset Search Filters</button>
+        </div>
+      </section>
+
+      <!-- Trust & Verification Section -->
+      <section class="transparency-callout">
+        <div class="callout-grid">
+          <div class="callout-card">
+            <div class="callout-icon">ðŸ›¡ï¸</div>
+            <h4>100% Verified Pricing Mandate</h4>
+            <p>Pricing data is ingested directly from Hospital &amp; Independent Diagnostic Facility (IDTF) CMS transparency files. No hidden markups or guesswork.</p>
+          </div>
+          <div class="callout-card">
+            <div class="callout-icon">âš–ï¸</div>
+            <h4>Unbiased Organic Ranking</h4>
+            <p>Providers are ranked purely on out-of-pocket costs, certified distance from your ZIP code, and verified appointment slots. Paid placement is strictly prohibited.</p>
+          </div>
+          <div class="callout-card">
+            <div class="callout-icon">ðŸ“‹</div>
+            <h4>Order &amp; Script Guidance</h4>
+            <p>We automatically detect whether state radiology regulations require a physician prescription before booking, saving you wasted trips.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 2: MY APPOINTMENTS & INSURANCE SCHEDULE (USER'S DIRECT REQUIREMENT) -->
+    <!-- ==================================================================== -->
+    <section class="tab-pane hidden" id="appointments-tab">
+      
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <span class="section-tag">INSURANCE-LINKED HEALTHCARE TRACKER</span>
+          <h2>My Appointments &amp; Insurance Schedule</h2>
+          <p>Track your scheduled clinical visits, verified pre-authorizations, estimated copays, and preparation requirements linked directly with your insurance policy.</p>
+        </div>
+        <div class="pane-actions">
+          <button class="btn btn-primary" id="open-book-modal-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            <span>Link / Add New Appointment</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Linked Insurance Policy Card -->
+      <div class="insurance-summary-card">
+        <div class="insurance-card-front">
+          <div class="card-chip-row">
+            <div class="card-logo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Blue Cross Blue Shield</span>
+            </div>
+            <span class="card-badge-verified">âœ“ Active &amp; Verified</span>
+          </div>
+          <div class="card-details-grid">
+            <div>
+              <span class="card-label">HEALTH PLAN</span>
+              <strong class="card-val" id="policy-plan">Horizon BCBS OMNIA Tier 1</strong>
+            </div>
+            <div>
+              <span class="card-label">MEMBER ID</span>
+              <strong class="card-val mono" id="policy-member-id">BCBS-8930218-01</strong>
+            </div>
+            <div>
+              <span class="card-label">GROUP NUMBER</span>
+              <strong class="card-val mono" id="policy-group-id">GRP-44021</strong>
+            </div>
+            <div>
+              <span class="card-label">OUT-OF-POCKET STATUS</span>
+              <strong class="card-val">$150.00 Remaining Deductible</strong>
+            </div>
+          </div>
+          <div class="deductible-progress-bar">
+            <div class="progress-fill" style="width: 25%;"></div>
+          </div>
+          <div class="progress-labels">
+            <small>$480 met of $1,500 annual deductible</small>
+            <small>Out-of-Pocket Max: $2,500</small>
+          </div>
+        </div>
+
+        <div class="insurance-insights-panel">
+          <h4>Insurance Coverage Summary</h4>
+          <ul class="insights-list">
+            <li>
+              <span class="icon-check">âœ“</span>
+              <div>
+                <strong>Preventive Diagnostic Bloodwork:</strong>
+                <p>Covered at 100% with $0 copay at Tier 1 in-network labs (Mercer Community Lab, University Diagnostics).</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon-check">âœ“</span>
+              <div>
+                <strong>Outpatient Diagnostic Imaging (X-Ray / Ultrasound):</strong>
+                <p>Standard $30.00 copay after deductible at contracted imaging facilities.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon-check">âœ“</span>
+              <div>
+                <strong>Pre-Authorization Status:</strong>
+                <p>Automatically synced with Horizon BCBS electronic portal. High-tech scans (MRI/CT) pre-authorized.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Appointments List Container -->
+      <div class="appointments-section">
+        <div class="appointments-header-bar">
+          <h3>Scheduled Care Appointments (<span id="appointments-total">3</span>)</h3>
+          <span class="realtime-status"><span class="pulse-dot"></span> Live Insurance Link Synced</span>
+        </div>
+
+        <div class="appointments-list" id="appointments-list">
+          <!-- Dynamically populated appointment cards -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 3: PERSONALIZED COST CALCULATOR -->
+    <!-- ==================================================================== -->
+    <section class="tab-pane hidden" id="calculator-tab">
+      
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <span class="section-tag">ACTUARIAL ESTIMATION ENGINE</span>
+          <h2>Personalized Out-of-Pocket Cost Calculator</h2>
+          <p>Estimate your exact patient responsibility before having blood drawn or undergoing imaging scans based on remaining deductible, copay, and coinsurance.</p>
+        </div>
+      </div>
+
+      <div class="calculator-grid">
+        <!-- Input Form -->
+        <div class="calc-form-card">
+          <h3>Benefit Parameters</h3>
+          <form id="calc-form">
+            <div class="form-group">
+              <label for="calc-treatment">Medical Procedure / Test</label>
+              <select id="calc-treatment" class="calc-input">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-provider">Clinic / Facility</label>
+              <select id="calc-provider" class="calc-input">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-insurance">Insurance Carrier</label>
+              <select id="calc-insurance" class="calc-input">
+                <option value="Blue Cross Blue Shield">Blue Cross Blue Shield (Horizon)</option>
+                <option value="Aetna">Aetna</option>
+                <option value="Cigna">Cigna</option>
+                <option value="UnitedHealthcare">UnitedHealthcare</option>
+              </select>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="calc-deductible">Remaining Deductible ($)</label>
+                <input type="number" id="calc-deductible" value="150" min="0" max="10000" step="10">
+              </div>
+
+              <div class="form-group">
+                <label for="calc-coinsurance">Coinsurance Rate (%)</label>
+                <input type="number" id="calc-coinsurance" value="20" min="0" max="100" step="5">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-copay">Fixed Copayment ($ or leave blank for plan default)</label>
+              <input type="number" id="calc-copay" placeholder="e.g. 30" min="0" max="500">
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="run-calc-btn">
+              Recalculate Cost Breakdown
+            </button>
+          </form>
+        </div>
+
+        <!-- Calculator Output & Visualization -->
+        <div class="calc-output-card" id="calc-output-card">
+          <div class="calc-output-header">
+            <span class="calc-status-tag">VERIFIED ESTIMATE</span>
+            <small class="calc-cpt-tag" id="calc-result-cpt">CPT CODE</small>
+          </div>
+
+          <h3 id="calc-result-service">Service Name</h3>
+          <p class="calc-facility-sub" id="calc-result-facility">Facility Name</p>
+
+          <div class="cost-summary-box">
+            <div class="cost-stat">
+              <span class="stat-label">Estimated Patient Responsibility</span>
+              <strong class="stat-big-price" id="calc-patient-total">$0.00</strong>
+            </div>
+            <div class="cost-stat">
+              <span class="stat-label">Estimated Plan Coverage</span>
+              <strong class="stat-plan-price" id="calc-plan-total">$0.00</strong>
+            </div>
+          </div>
+
+          <!-- Breakdown Ledger -->
+          <div class="breakdown-ledger">
+            <h4>Calculation Formula &amp; Adjudication</h4>
+            <div class="ledger-row">
+              <span>Gross Self-Pay / Cash Price</span>
+              <span id="calc-gross-price">$0.00</span>
+            </div>
+            <div class="ledger-row highlight-row">
+              <span>Contracted In-Network Allowed Rate (CMS MRF)</span>
+              <strong id="calc-allowed-price">$0.00</strong>
+            </div>
+            <div class="ledger-row">
+              <span>Deductible Amount Applied</span>
+              <span id="calc-deductible-applied">$0.00</span>
+            </div>
+            <div class="ledger-row">
+              <span>Coinsurance Amount (Patient Share)</span>
+              <span id="calc-coinsurance-applied">$0.00</span>
+            </div>
+            <div class="ledger-row">
+              <span>Copayment (if applicable)</span>
+              <span id="calc-copay-applied">$0.00</span>
+            </div>
+          </div>
+
+          <div class="assumptions-box">
+            <h5>Calculation Assumptions:</h5>
+            <ul id="calc-assumptions-list">
+              <li>Assumes in-network adjudication under selected benefits schedule.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 4: MEDICAL BILL & EOB RECONCILIATION TRACKER -->
+    <!-- ==================================================================== -->
+    <section class="tab-pane hidden" id="bills-tab">
+      
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <span class="section-tag">BILLING TRANSPARENCY &amp; ACCURACY</span>
+          <h2>Medical Bill &amp; EOB Reconciliation Tracker</h2>
+          <p>Compare original CareCompare estimates with your final Explanation of Benefits (EOB) and clinic invoices. Detect overcharges and billing anomalies.</p>
+        </div>
+        <button class="btn btn-primary" id="open-bill-modal-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          <span>Submit Bill / EOB for Review</span>
+        </button>
+      </div>
+
+      <!-- Financial Metrics Summary -->
+      <div class="bill-stats-grid">
+        <div class="metric-card">
+          <span class="metric-label">TOTAL ESTIMATED</span>
+          <strong class="metric-value" id="total-bills-estimated">$62.00</strong>
+          <small class="metric-foot">Original CareCompare estimates</small>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">ACTUAL OUT-OF-POCKET PAID</span>
+          <strong class="metric-value" id="total-bills-paid">$48.00</strong>
+          <small class="metric-foot">Final patient responsibility</small>
+        </div>
+        <div class="metric-card metric-savings">
+          <span class="metric-label">IN-NETWORK DISCOUNT SAVINGS</span>
+          <strong class="metric-value" id="total-bills-savings">$166.50</strong>
+          <small class="metric-foot">Saved vs hospital gross chargemaster</small>
+        </div>
+      </div>
+
+      <!-- Past Bills Table -->
+      <div class="bills-table-wrapper">
+        <table class="bills-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Service &amp; CPT</th>
+              <th>Provider</th>
+              <th>CareCompare Estimate</th>
+              <th>Final Billed Charge</th>
+              <th>Insurance Paid</th>
+              <th>Your Final Responsibility</th>
+              <th>Variance &amp; Analysis</th>
+            </tr>
+          </thead>
+          <tbody id="bills-tbody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bill Explanation Guide -->
+      <div class="eob-guide-card">
+        <h3>How to Read Your Explanation of Benefits (EOB)</h3>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <span class="step-num">1</span>
+            <strong>Billed Amount</strong>
+            <p>The provider's gross chargemaster rate. In-network patients NEVER pay this full rate.</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">2</span>
+            <strong>Allowed Amount</strong>
+            <p>The maximum rate your insurer and provider agreed upon contractually.</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">3</span>
+            <strong>Plan Paid</strong>
+            <p>The portion your health plan paid directly to the clinic on your behalf.</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">4</span>
+            <strong>Patient Responsibility</strong>
+            <p>Your true legal out-of-pocket obligation (deductible, copay, or coinsurance).</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 5: AI HEALTHCARE DECISION ASSISTANT -->
+    <!-- ==================================================================== -->
+    <section class="tab-pane hidden" id="assistant-tab">
+      
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <span class="section-tag">FACTUAL HEALTHCARE NAVIGATOR</span>
+          <h2>AI Healthcare Decision Assistant</h2>
+          <p>Plain-language guidance for navigating insurance contracts, provider price differences, and doctor's referral requirements based strictly on verified platform data.</p>
+        </div>
+      </div>
+
+      <div class="assistant-layout">
+        <!-- Assistant Left Panel: Prompts & Guidance -->
+        <div class="assistant-info-panel">
+          <h3>Common Healthcare Questions</h3>
+          <p>Click any topic below or type your custom inquiry into the conversation:</p>
+          
+          <div class="prompt-chips-list">
+            <button class="prompt-btn" data-query="Do I need a doctor's order for an ultrasound?">
+              <span>Do I need a doctor's order for an ultrasound?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="prompt-btn" data-query="What is the difference between deductible and coinsurance?">
+              <span>What is the difference between deductible and coinsurance?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="prompt-btn" data-query="Which clinic has the lowest cost for a blood test?">
+              <span>Which clinic has the lowest cost for a blood test?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="prompt-btn" data-query="How do I track my appointments linked to insurance?">
+              <span>How do I track my appointments linked to insurance?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="prompt-btn" data-query="Are the prices on CareCompare AI guaranteed?">
+              <span>Are the prices on CareCompare AI guaranteed?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <div class="assistant-disclaimer-box">
+            <div class="disclaimer-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              <span>Non-Diagnostic Guarantee</span>
+            </div>
+            <p>CareCompare AI never provides medical diagnoses or clinical recommendations. All outputs reflect administrative fee disclosures, CMS transparency files, and standard health insurance guidelines.</p>
+          </div>
+        </div>
+
+        <!-- Assistant Right Panel: Live Chat Card -->
+        <div class="chat-container">
+          <div class="chat-card-header">
+            <div class="chat-bot-info">
+              <div class="chat-avatar">âœš</div>
+              <div>
+                <strong>CareCompare Intelligence</strong>
+                <small><span class="pulse-dot"></span> Online &amp; Grounded in CMS 2026 Data</small>
+              </div>
+            </div>
+            <span class="chat-mode-badge">FACTUAL ENGINE</span>
+          </div>
+
+          <div class="chat-stream" id="chat-stream">
+            <div class="chat-msg bot">
+              <div class="msg-avatar">âœš</div>
+              <div class="msg-content">
+                <p>Hello! I am your CareCompare AI Decision Guide. I can help explain healthcare pricing, identify which clinics offer earliest appointment slots, explain deductibles and coinsurance, or verify whether a doctor's script is required.</p>
+                <p>How can I assist you with your healthcare options today?</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="chat-form" class="chat-input-bar">
+            <input 
+              type="text" 
+              id="chat-user-input" 
+              placeholder="Ask anything about clinics, appointments, insurance, or treatmentsâ€¦" 
+              autocomplete="off"
+            >
+            <button type="submit" class="btn btn-primary btn-icon" aria-label="Send query">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 14-7-7 14-2-5-5-2z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================================== -->
+  <!-- MODAL: SIDE-BY-SIDE PROVIDER COMPARISON -->
+  <!-- ==================================================================== -->
+  <div class="modal-backdrop hidden" id="compare-modal">
+    <div class="modal-dialog modal-large">
+      <div class="modal-header">
+        <div>
+          <h3>Side-by-Side Clinic Comparison</h3>
+          <p id="compare-origin-label">Comparing verified rates and timings</p>
+        </div>
+        <button class="modal-close-btn" id="close-compare-modal">&times;</button>
+      </div>
+      <div class="modal-body" id="compare-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================================== -->
+  <!-- MODAL: PROVIDER PROFILE & FULL TRANSPARENCY SCHEDULE -->
+  <!-- ==================================================================== -->
+  <div class="modal-backdrop hidden" id="provider-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-provider-name">Clinic Details</h3>
+          <p id="modal-provider-category">Facility Type</p>
+        </div>
+        <button class="modal-close-btn" id="close-provider-modal">&times;</button>
+      </div>
+      <div class="modal-body" id="provider-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================================== -->
+  <!-- MODAL: LINK / ADD NEW APPOINTMENT -->
+  <!-- ==================================================================== -->
+  <div class="modal-backdrop hidden" id="book-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3>Link / Schedule Healthcare Appointment</h3>
+          <p>Link your clinical appointment to your active insurance policy.</p>
+        </div>
+        <button class="modal-close-btn" id="close-book-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="book-form">
+          <div class="form-group">
+            <label for="book-treatment">Medical Treatment / Procedure</label>
+            <select id="book-treatment" required class="calc-input">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="book-provider">Selected Clinic / Provider</label>
+            <select id="book-provider" required class="calc-input">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="book-date">Appointment Date</label>
+              <input type="date" id="book-date" required>
+            </div>
+            <div class="form-group">
+              <label for="book-time">Time Slot</label>
+              <input type="time" id="book-time" value="09:30" required>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="book-insurance">Insurance Carrier</label>
+              <input type="text" id="book-insurance" value="Blue Cross Blue Shield" readonly>
+            </div>
+            <div class="form-group">
+              <label for="book-plan">Plan Name</label>
+              <input type="text" id="book-plan" value="Horizon BCBS OMNIA Tier 1" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="book-order" checked>
+              <span>I have a physician's prescription or order on file</span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="book-notes">Patient Notes (optional)</label>
+            <input type="text" id="book-notes" placeholder="e.g. Fasting blood draw, annual checkup">
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancel-book-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="submit-book-btn">Confirm &amp; Link Insurance</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================================== -->
+  <!-- MODAL: SUBMIT MEDICAL BILL / EOB -->
+  <!-- ==================================================================== -->
+  <div class="modal-backdrop hidden" id="bill-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3>Submit Medical Bill / EOB for Review</h3>
+          <p>Compare actual charges against CareCompare's verified estimates.</p>
+        </div>
+        <button class="modal-close-btn" id="close-bill-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="bill-form">
+          <div class="form-group">
+            <label for="bill-service">Service Description</label>
+            <input type="text" id="bill-service" placeholder="e.g. Abdominal Ultrasound" required>
+          </div>
+
+          <div class="form-group">
+            <label for="bill-provider">Clinic / Provider Name</label>
+            <input type="text" id="bill-provider" placeholder="e.g. Central Imaging Center" required>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="bill-date">Date of Service</label>
+              <input type="date" id="bill-date" required>
+            </div>
+            <div class="form-group">
+              <label for="bill-cpt">CPT Code (if on bill)</label>
+              <input type="text" id="bill-cpt" placeholder="e.g. CPT 76700">
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="bill-estimate">Original CareCompare Estimate ($)</label>
+              <input type="number" id="bill-estimate" step="0.01" value="110.00" required>
+            </div>
+            <div class="form-group">
+              <label for="bill-charged">Gross Provider Billed Charge ($)</label>
+              <input type="number" id="bill-charged" step="0.01" value="280.00" required>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="bill-patient-paid">Your Out-of-Pocket Responsibility ($)</label>
+              <input type="number" id="bill-patient-paid" step="0.01" value="30.00" required>
+            </div>
+            <div class="form-group">
+              <label for="bill-plan-paid">Insurance Paid ($)</label>
+              <input type="number" id="bill-plan-paid" step="0.01" value="80.00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="bill-consent" required>
+              <span>I give consent for CareCompare AI to evaluate this anonymized bill against transparent pricing benchmarks</span>
+            </label>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancel-bill-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Reconcile &amp; Save Bill</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand">
+          <div class="brand-logo">âœš</div>
+          <div class="brand-text">CareCompare<span class="brand-ai">AI</span></div>
+        </div>
+        <p>Know Your Options Before You Book. An AI-first healthcare price transparency platform built on verified hospital &amp; IDTF CMS MRF standard charge disclosures.</p>
+      </div>
+
+      <div class="footer-meta">
+        <div class="meta-item">
+          <strong>Launch Market</strong>
+          <span>Central New Jersey (Mercer, Middlesex, Somerset) &amp; Tri-State Metro</span>
+        </div>
+        <div class="meta-item">
+          <strong>Data Verification</strong>
+          <span>CMS Hospital Price Transparency Mandate &amp; Direct Provider Feeds</span>
+        </div>
+        <div class="meta-item">
+          <strong>Privacy &amp; Compliance</strong>
+          <span>Zero third-party health data sharing. End-to-end encrypted storage.</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CareCompare AI Â· All Rights Reserved.</span>
+      <div class="footer-links">
+        <a href="#search-tab" class="footer-tab-link" data-tab="search-tab">Search Clinics</a>
+        <a href="#appointments-tab" class="footer-tab-link" data-tab="appointments-tab">My Appointments &amp; Insurance</a>
+        <a href="#calculator-tab" class="footer-tab-link" data-tab="calculator-tab">Cost Calculator</a>
+        <a href="#assistant-tab" class="footer-tab-link" data-tab="assistant-tab">AI Decision Guide</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/app.js"></script>
+</body>
+</html>
+

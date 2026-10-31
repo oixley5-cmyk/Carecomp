@@ -54,7 +54,7 @@ ZIP_COORDINATES: Dict[str, Dict[str, Any]] = {
     "08002": {"lat": 39.9348, "lon": -75.0135, "city": "Cherry Hill", "state": "NJ"},
 }
 
-DEFAULT_ORIGIN = {"lat": 40.3573, "lon": -74.6672, "city": "Princeton", "state": "NJ", "zip": "08540"}
+DEFAULT_ORIGIN = {"lat": 40.3573, "lon": -74.6672, "city": "Princeton", "state": "NJ", "zip": "08540", "display": "Princeton, NJ (08540)"}
 
 def haversine_distance_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """Calculate great-circle distance between two coordinates in miles."""
