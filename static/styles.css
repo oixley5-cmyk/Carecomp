@@ -278,6 +278,17 @@ body {
   padding: 24px 24px 60px;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.modal-backdrop.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .tab-pane {
   display: block;
 }
@@ -1832,6 +1843,10 @@ select:focus {
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+.modal-backdrop.hidden {
+  display: none !important;
 }
 
 .modal-dialog {
