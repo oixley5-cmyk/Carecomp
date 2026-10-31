@@ -265,6 +265,226 @@ const CLIENT_DATA = {
       order_note: "Doctor's referral and recent kidney function (eGFR/Creatinine lab) required for contrast dye.",
       prep: "Fast 4 hours prior. Drink oral contrast solution 1-2 hours prior if instructed.",
       description: "Cross-sectional X-ray computed tomography providing comprehensive diagnostic imaging of internal organs and abdominal vasculature."
+    },
+    {
+      id: "dental_cleaning",
+      code: "CDT D1110",
+      name: "Routine Dental Cleaning & Prophylaxis (Adult)",
+      category: "Dental Care",
+      aliases: ["dental cleaning", "cleaning", "teeth cleaning", "prophylaxis", "prophy", "dental hygiene", "tooth cleaning", "dental polish", "scaling", "plaque removal", "dental"],
+      order_required: false,
+      order_note: "No referral required. Self-schedule directly with a participating dental provider. 100% covered at 2 cleanings/year under most PPO dental plans.",
+      prep: "Brush and floss prior to appointment. Arrive 10 minutes early for patient intake.",
+      description: "Professional supragingival and subgingival plaque and tartar removal, polishing, and fluoride treatment by a licensed dental hygienist."
+    },
+    {
+      id: "dental_exam",
+      code: "CDT D0120",
+      name: "Periodic Oral Examination / Dental Checkup",
+      category: "Dental Care",
+      aliases: ["dental exam", "dental checkup", "oral exam", "dentist checkup", "dental visit", "dentist visit", "dentist appointment"],
+      order_required: false,
+      order_note: "No referral required. Typically bundled with prophylaxis cleaning visit.",
+      prep: "Bring your dental insurance card and any recent dental X-rays if applicable.",
+      description: "Comprehensive evaluation of oral health, bite, gum condition, and screening for oral cancer, decay, and restorative needs."
+    },
+    {
+      id: "dental_xrays",
+      code: "CDT D0274",
+      name: "Bitewing Dental X-Rays (4 Radiographic Images)",
+      category: "Dental Care",
+      aliases: ["dental xrays", "dental x-ray", "bitewing", "dental radiograph", "dental images", "dental x rays"],
+      order_required: false,
+      order_note: "Ordered by attending dentist during routine exam. Typically covered annually or biennially under dental PPO.",
+      prep: "No special preparation required.",
+      description: "Diagnostic dental radiographs that detect decay between teeth, assess bone levels, and identify early signs of gum disease."
+    },
+    {
+      id: "dental_filling",
+      code: "CDT D2391",
+      name: "Composite Resin Dental Filling (Tooth-Colored, 1-2 Surfaces)",
+      category: "Dental Care",
+      aliases: ["dental filling", "tooth filling", "cavity filling", "composite filling", "resin filling", "cavity"],
+      order_required: false,
+      order_note: "Recommended by dentist after exam. Basic restorative care; partial insurance coverage typical.",
+      prep: "Arrange for a driver if you receive local anesthetic injection.",
+      description: "Tooth-colored composite resin restoration of a single or two-surface carious lesion."
+    },
+    {
+      id: "dental_extraction",
+      code: "CDT D7140",
+      name: "Routine Tooth Extraction (Erupted Tooth)",
+      category: "Dental Care",
+      aliases: ["tooth extraction", "dental extraction", "pull tooth", "tooth removal", "extract tooth"],
+      order_required: false,
+      order_note: "Dentist diagnosis required. Simple extractions of erupted teeth.",
+      prep: "Arrange transportation. Avoid eating/drinking 2 hours before procedure. Inform dentist of all medications.",
+      description: "Simple removal of an erupted, accessible tooth with routine forceps technique under local anesthetic."
+    },
+    {
+      id: "eye_exam",
+      code: "CPT 92004",
+      name: "Comprehensive Annual Eye & Vision Examination",
+      category: "Vision Care",
+      aliases: ["eye exam", "vision exam", "optometrist", "eye doctor", "eye checkup", "vision test", "eye test", "glasses prescription", "contact lens exam", "vision check", "eye"],
+      order_required: false,
+      order_note: "No referral required. Annual refractive exam is self-scheduled under vision rider benefit.",
+      prep: "Bring current glasses or contact lenses. Pupil dilation may be performed; arrange a driver.",
+      description: "Complete refractive evaluation, ocular motility, intraocular pressure screening, and anterior/posterior segment examination."
+    },
+    {
+      id: "retinal_scan",
+      code: "CPT 92250",
+      name: "Digital Retinal Fundus Imaging (Optomap)",
+      category: "Vision Care",
+      aliases: ["retinal scan", "optomap", "fundus photo", "retinal imaging", "eye scan", "retinal photo", "optomap scan"],
+      order_required: false,
+      order_note: "Typically ordered by optometrist during annual exam. Coverage varies by plan.",
+      prep: "No pupil dilation required for Optomap ultra-widefield imaging. No preparation needed.",
+      description: "Ultra-wide digital imaging of the retina and fundus to screen for macular degeneration, glaucoma, and retinal disease."
+    },
+    {
+      id: "annual_physical",
+      code: "CPT 99395",
+      name: "Annual Preventive Physical Examination (Adult Wellness)",
+      category: "Preventive & Primary Care",
+      aliases: ["annual physical", "physical exam", "wellness visit", "checkup", "yearly physical", "preventive exam", "well visit", "annual wellness", "routine physical", "physical"],
+      order_required: false,
+      order_note: "No referral required. Covered at 100% ACA preventive with $0 copay at in-network primary care.",
+      prep: "Fast for 8-10 hours if fasting labs are ordered. Bring your medication list and immunization records.",
+      description: "Comprehensive adult preventive care visit including vital signs, risk factor assessment, age-appropriate screenings, and counseling."
+    },
+    {
+      id: "flu_vaccine",
+      code: "CPT 90686",
+      name: "Influenza Quadrivalent Vaccine (Flu Shot)",
+      category: "Preventive & Primary Care",
+      aliases: ["flu shot", "flu vaccine", "influenza vaccine", "flu vaccination", "influenza shot", "flu"],
+      order_required: false,
+      order_note: "Walk-in vaccination available at most primary care offices and pharmacies.",
+      prep: "No preparation required. Wear clothing that allows easy access to the upper arm.",
+      description: "Annual seasonal influenza immunization protecting against 4 circulating influenza A and B strains."
+    },
+    {
+      id: "colonoscopy",
+      code: "CPT 45378",
+      name: "Screening Colonoscopy (Preventive Colorectal Exam)",
+      category: "Preventive & Primary Care",
+      aliases: ["colonoscopy", "colon cancer screening", "colorectal screening", "colon exam", "bowel exam", "colon scope"],
+      order_required: true,
+      order_note: "Physician order required. Covered at 100% ACA preventive screening for adults 45+ per USPSTF guidelines.",
+      prep: "Full bowel preparation (clear liquid diet the day before, colonoscopy prep solution). Arrange transportation home. No driving after sedation.",
+      description: "Direct visual endoscopic examination of the entire large intestine with polypectomy capability for colorectal cancer prevention."
+    },
+    {
+      id: "well_woman",
+      code: "CPT 99396",
+      name: "Annual Well-Woman Preventive Visit (Pap & Pelvic Exam)",
+      category: "Preventive & Primary Care",
+      aliases: ["well woman", "pap smear", "gynecologist", "gynecology", "pelvic exam", "women's health", "ob gyn", "annual women's exam", "pap test", "pap"],
+      order_required: false,
+      order_note: "No referral required for preventive well-woman exam. Covered at 100% ACA preventive.",
+      prep: "Schedule mid-cycle (not during menstruation). Avoid intercourse, douching, or vaginal products 24 hours prior.",
+      description: "Annual preventive women's health evaluation including pelvic exam, Pap smear, breast exam, and age-appropriate screenings."
+    },
+    {
+      id: "pt_eval",
+      code: "CPT 97161",
+      name: "Physical Therapy Comprehensive Initial Evaluation",
+      category: "Specialist & Therapy",
+      aliases: ["physical therapy", "pt eval", "physiotherapy", "pt evaluation", "sports rehab", "rehab", "physical rehab", "musculoskeletal evaluation", "physical therapist", "pt"],
+      order_required: false,
+      order_note: "Direct access available for first 30 days per NJ state law. Physician order needed for ongoing insurance coverage beyond 30 days.",
+      prep: "Bring any prior imaging (X-Ray, MRI) reports. Wear comfortable, loose-fitting clothing.",
+      description: "Comprehensive musculoskeletal and functional movement assessment by a licensed physical therapist to develop an individualized treatment plan."
+    },
+    {
+      id: "psych_therapy",
+      code: "CPT 90834",
+      name: "Individual Psychotherapy & Counseling (45 Minutes)",
+      category: "Specialist & Therapy",
+      aliases: ["therapy", "psychotherapy", "counseling", "mental health", "therapist", "psychiatry", "psychology", "talk therapy", "behavioral health", "mental health therapy"],
+      order_required: false,
+      order_note: "No referral required for outpatient mental health counseling under parity laws. Copay applies.",
+      prep: "Plan to arrive 15 minutes early to complete intake paperwork for your first session.",
+      description: "Evidence-based individual psychotherapy session with a licensed mental health professional for anxiety, depression, PTSD, and related conditions."
+    },
+    {
+      id: "derma_exam",
+      code: "CPT 99203",
+      name: "Dermatology Full-Body Skin Cancer Examination",
+      category: "Specialist & Therapy",
+      aliases: ["dermatology", "skin exam", "skin cancer screening", "dermatologist", "mole check", "skin check", "melanoma screening", "skin cancer exam"],
+      order_required: false,
+      order_note: "Referral may be required by HMO-style plans. Check your insurance plan type.",
+      prep: "Remove nail polish from fingers and toes. Remove all body jewelry. Avoid body lotion on exam day.",
+      description: "Comprehensive full-body skin cancer screening by a board-certified dermatologist examining all moles, lesions, and skin changes."
+    },
+    {
+      id: "cardiac_ekg",
+      code: "CPT 93000",
+      name: "12-Lead Resting Electrocardiogram (EKG / ECG)",
+      category: "Preventive & Primary Care",
+      aliases: ["ekg", "ecg", "electrocardiogram", "heart test", "cardiac test", "heart rate test", "cardiogram", "ekg test"],
+      order_required: true,
+      order_note: "Physician order required. Typically ordered as part of cardiovascular risk assessment or annual physical.",
+      prep: "Avoid lotions or oils on chest on exam day. Wear a loose, easily removable top.",
+      description: "Non-invasive 12-lead resting ECG recording cardiac electrical activity to screen for arrhythmias, ischemia, and conduction abnormalities."
+    },
+    {
+      id: "echocardiogram",
+      code: "CPT 93306",
+      name: "Transthoracic Echocardiogram (Complete Cardiac Echo)",
+      category: "Imaging",
+      aliases: ["echocardiogram", "cardiac echo", "heart ultrasound", "echo", "heart echo", "cardiac ultrasound"],
+      order_required: true,
+      order_note: "Cardiologist or physician order mandatory. Pre-authorization commonly required.",
+      prep: "No fasting required. Avoid applying lotion to chest. Wear a two-piece outfit.",
+      description: "Real-time ultrasound imaging of cardiac chambers, valves, and function including Doppler blood flow measurements."
+    },
+    {
+      id: "dexa_scan",
+      code: "CPT 77080",
+      name: "DEXA Bone Mineral Density Scan (Dual-Energy X-Ray Absorptiometry)",
+      category: "Imaging",
+      aliases: ["dexa", "bone density", "dxa scan", "osteoporosis test", "bone density test", "bone scan", "dexa scan"],
+      order_required: true,
+      order_note: "Physician order required. Covered 100% ACA preventive for women 65+ and high-risk adults.",
+      prep: "Do not take calcium supplements for 24 hours prior. Wear clothing without metal snaps or zippers.",
+      description: "Low-dose dual-energy X-ray measurement of bone mineral density in the spine and hip to screen for osteoporosis."
+    },
+    {
+      id: "testosterone",
+      code: "CPT 84403",
+      name: "Total Testosterone Serum Level (LC/MS-MS)",
+      category: "Lab tests",
+      aliases: ["testosterone", "testosterone test", "t level", "hormone test", "low t", "testosterone panel", "testosterone level"],
+      order_required: false,
+      order_note: "Physician order recommended for insurance coverage. Direct-access wellness testing available.",
+      prep: "Morning draw strongly recommended (7–10 AM); testosterone levels are highest in AM.",
+      description: "Mass spectrometry measurement of total serum testosterone to evaluate hypogonadism, hormonal imbalance, and androgen therapy monitoring."
+    },
+    {
+      id: "std_panel",
+      code: "CPT 87491",
+      name: "Comprehensive STI / STD Screening Panel",
+      category: "Lab tests",
+      aliases: ["std panel", "sti panel", "std test", "sti test", "sexual health screening", "std screening", "hiv test", "chlamydia test", "gonorrhea test", "std"],
+      order_required: false,
+      order_note: "Confidential testing available without referral. Covered ACA preventive for sexually active adults.",
+      prep: "Provide urine sample (do not urinate 1 hour prior). Blood draw may also be required.",
+      description: "Comprehensive sexually transmitted infection screening including HIV, Syphilis, Chlamydia, Gonorrhea, Hepatitis B and C."
+    },
+    {
+      id: "allergy_test",
+      code: "CPT 86003",
+      name: "Quantitative Specific IgE Allergen Blood Panel (Food & Environmental)",
+      category: "Lab tests",
+      aliases: ["allergy test", "allergy panel", "allergy blood test", "ige test", "rast test", "food allergy test", "environmental allergy test", "allergy"],
+      order_required: false,
+      order_note: "Physician order required for insurance billing. Allergy specialist or PCP can order.",
+      prep: "Do not discontinue antihistamines for blood-based IgE testing (only required for skin testing).",
+      description: "Quantitative serum IgE measurement for specific food allergens (peanut, shellfish, milk, wheat) and environmental allergens (dust, pollen, mold)."
     }
   ],
 
@@ -571,6 +791,134 @@ const CLIENT_DATA = {
         brain_mri: { cash: 475, negotiated: 310, status: "VERIFIED" },
         lumbar_mri: { cash: 490, negotiated: 320, status: "VERIFIED" },
         abdomen_ct: { cash: 395, negotiated: 260, status: "VERIFIED" }
+      }
+    },
+    {
+      id: "princeton-dental",
+      name: "Princeton Dental Arts & Preventive Care",
+      facility_type: "Comprehensive General & Preventive Dental Practice",
+      category: "Dental Care",
+      address: "256 Nassau St, Suite 2",
+      city: "Princeton",
+      state: "NJ",
+      zip: "08540",
+      lat: 40.3520,
+      lon: -74.6540,
+      phone: "(609) 555-0899",
+      website: "https://princetondentalarts.example.com",
+      booking_url: "https://princetondentalarts.example.com/appointments",
+      hours: "Mon–Thu: 8:00 AM – 6:00 PM | Fri: 8:00 AM – 2:00 PM",
+      next_verified_slot: "Tomorrow at 11:00 AM",
+      verification_badge: "VERIFIED",
+      data_source: "Dental Transparency Contracted Fee Disclosure · Verified Oct 2026",
+      last_updated: "October 2026",
+      accepted_plans: {
+        "Blue Cross Blue Shield": { network: "Verified In-Network", tier: "Dental PPO Tier 1 (100% Preventive)", copay: 0 },
+        "Aetna": { network: "Verified In-Network", tier: "Dental PPO Network", copay: 0 },
+        "Cigna": { network: "Verified In-Network", tier: "Total Dental Choice", copay: 0 },
+        "UnitedHealthcare": { network: "Verified In-Network", tier: "Dental Premier", copay: 0 }
+      },
+      prices: {
+        dental_cleaning: { cash: 110, negotiated: 0, status: "VERIFIED" },
+        dental_exam: { cash: 65, negotiated: 0, status: "VERIFIED" },
+        dental_xrays: { cash: 75, negotiated: 0, status: "VERIFIED" },
+        dental_filling: { cash: 180, negotiated: 35, status: "VERIFIED" },
+        dental_extraction: { cash: 195, negotiated: 45, status: "VERIFIED" }
+      }
+    },
+    {
+      id: "jersey-vision",
+      name: "Central Jersey Vision & Ophthalmology Center",
+      facility_type: "Optometry & Comprehensive Ophthalmology Clinic",
+      category: "Vision Care",
+      address: "666 Plainsboro Rd, Bldg 200",
+      city: "Plainsboro",
+      state: "NJ",
+      zip: "08536",
+      lat: 40.3315,
+      lon: -74.5910,
+      phone: "(609) 555-0740",
+      website: "https://jerseyvisioncare.example.com",
+      booking_url: "https://jerseyvisioncare.example.com/schedule",
+      hours: "Mon–Fri: 8:30 AM – 5:30 PM | Sat: 9:00 AM – 1:00 PM",
+      next_verified_slot: "Thursday at 2:30 PM",
+      verification_badge: "VERIFIED",
+      data_source: "Vision Benefit Clearinghouse Fee Schedule · Verified Oct 2026",
+      last_updated: "October 2026",
+      accepted_plans: {
+        "Blue Cross Blue Shield": { network: "Verified In-Network", tier: "Vision Care Rider", copay: 10 },
+        "Aetna": { network: "Verified In-Network", tier: "Vision Preferred", copay: 10 },
+        "Cigna": { network: "Verified In-Network", tier: "Vision Network", copay: 15 },
+        "UnitedHealthcare": { network: "Verified In-Network", tier: "Spectera Vision", copay: 10 }
+      },
+      prices: {
+        eye_exam: { cash: 120, negotiated: 10, status: "VERIFIED" },
+        retinal_scan: { cash: 45, negotiated: 15, status: "VERIFIED" }
+      }
+    },
+    {
+      id: "mercer-primary",
+      name: "Mercer Family Medicine & Wellness",
+      facility_type: "Primary Care & Preventive Medicine Group",
+      category: "Preventive & Primary Care",
+      address: "1230 Parkway Ave, Suite 101",
+      city: "Lawrenceville",
+      state: "NJ",
+      zip: "08648",
+      lat: 40.2810,
+      lon: -74.7410,
+      phone: "(609) 555-0922",
+      website: "https://mercerfamilymed.example.org",
+      booking_url: "https://mercerfamilymed.example.org/portal",
+      hours: "Mon–Fri: 7:30 AM – 6:30 PM | Sat: 8:00 AM – 12:00 PM",
+      next_verified_slot: "Wednesday at 10:15 AM",
+      verification_badge: "VERIFIED",
+      data_source: "ACA Preventive Compliance Mandate File · Verified Oct 2026",
+      last_updated: "October 2026",
+      accepted_plans: {
+        "Blue Cross Blue Shield": { network: "Verified In-Network", tier: "OMNIA Tier 1 (100% ACA Preventive)", copay: 0 },
+        "Aetna": { network: "Verified In-Network", tier: "Tier 1 Choice", copay: 0 },
+        "Cigna": { network: "Verified In-Network", tier: "Open Access", copay: 0 },
+        "UnitedHealthcare": { network: "Verified In-Network", tier: "Choice Plus Tier 1", copay: 0 }
+      },
+      prices: {
+        annual_physical: { cash: 220, negotiated: 0, status: "VERIFIED" },
+        flu_vaccine: { cash: 45, negotiated: 0, status: "VERIFIED" },
+        colonoscopy: { cash: 1400, negotiated: 0, status: "VERIFIED" },
+        well_woman: { cash: 190, negotiated: 0, status: "VERIFIED" },
+        cardiac_ekg: { cash: 65, negotiated: 20, status: "VERIFIED" },
+        derma_exam: { cash: 175, negotiated: 40, status: "VERIFIED" }
+      }
+    },
+    {
+      id: "plainsboro-pt",
+      name: "Plainsboro Physical Therapy & Sports Rehab",
+      facility_type: "Outpatient Musculoskeletal Rehabilitation Facility",
+      category: "Specialist & Therapy",
+      address: "300 Medical Center Dr, Suite 105",
+      city: "Plainsboro",
+      state: "NJ",
+      zip: "08536",
+      lat: 40.3360,
+      lon: -74.5860,
+      phone: "(609) 555-0480",
+      website: "https://plainsboropt.example.com",
+      booking_url: "https://plainsboropt.example.com/evaluations",
+      hours: "Mon–Fri: 7:00 AM – 7:30 PM",
+      next_verified_slot: "Tomorrow at 3:00 PM",
+      verification_badge: "VERIFIED",
+      data_source: "Contracted Outpatient Physical Therapy Fee Schedule · Verified Oct 2026",
+      last_updated: "October 2026",
+      accepted_plans: {
+        "Blue Cross Blue Shield": { network: "Verified In-Network", tier: "OMNIA Tier 1", copay: 25 },
+        "Aetna": { network: "Verified In-Network", tier: "Standard In-Network", copay: 30 },
+        "Cigna": { network: "Verified In-Network", tier: "In-Network", copay: 30 },
+        "UnitedHealthcare": { network: "Verified In-Network", tier: "Choice Tier 1", copay: 25 }
+      },
+      prices: {
+        pt_eval: { cash: 160, negotiated: 30, status: "VERIFIED" },
+        dexa_scan: { cash: 150, negotiated: 35, status: "VERIFIED" },
+        psych_therapy: { cash: 150, negotiated: 25, status: "VERIFIED" }
       }
     }
   ],
@@ -1244,6 +1592,27 @@ function downloadIcsCalendar(appointmentId) {
   if (!apt) return;
 
   const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+  // Dynamically parse the appointment datetime
+  let dtStart = "20261104T083000";
+  let dtEnd = "20261104T093000";
+  try {
+    const dt = new Date(apt.date_time);
+    if (!isNaN(dt.getTime())) {
+      const pad = n => String(n).padStart(2, "0");
+      const y = dt.getFullYear();
+      const mo = pad(dt.getMonth() + 1);
+      const d = pad(dt.getDate());
+      const h = pad(dt.getHours());
+      const mi = pad(dt.getMinutes());
+      dtStart = `${y}${mo}${d}T${h}${mi}00`;
+      const dtEndObj = new Date(dt.getTime() + 60 * 60 * 1000);
+      const h2 = pad(dtEndObj.getHours());
+      const mi2 = pad(dtEndObj.getMinutes());
+      dtEnd = `${dtEndObj.getFullYear()}${pad(dtEndObj.getMonth() + 1)}${pad(dtEndObj.getDate())}T${h2}${mi2}00`;
+    }
+  } catch (e) {}
+
   const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//CareCompare AI//Appointments//EN
@@ -1252,8 +1621,8 @@ METHOD:PUBLISH
 BEGIN:VEVENT
 UID:${apt.id}@carecompare.ai
 DTSTAMP:${now}
-DTSTART:20261104T083000
-DTEND:20261104T093000
+DTSTART:${dtStart}
+DTEND:${dtEnd}
 SUMMARY:${apt.treatment_name} at ${apt.provider_name}
 DESCRIPTION:CareCompare AI Confirmed Healthcare Appointment\\nTreatment: ${apt.treatment_name} (${apt.treatment_code})\\nProvider: ${apt.provider_name}\\nAddress: ${apt.address}\\nInsurance: ${apt.insurance_company}\\nPreparation: ${apt.prep_instructions}
 LOCATION:${apt.address}
@@ -1837,10 +2206,169 @@ function initEventHandlers() {
 window.openBookModal = openBookModal;
 window.closeModals = closeModals;
 
+// ==============================================================================
+// 13. NOTIFICATION BELL DROPDOWN
+// ==============================================================================
+
+const CLIENT_NOTIFICATIONS = [
+  {
+    id: "notif-dental",
+    icon: "🦷",
+    badge: "DUE NOW",
+    badge_color: "#dc2626",
+    title: "Yearly Dental Checkup & Routine Cleaning Due",
+    coverage_note: "100% Covered ($0 Copay / $0 Deductible)",
+    message: "Your dental benefits cover two routine cleanings and one comprehensive exam per calendar year at 100% coverage ($0 out-of-pocket). You are due for your 6-month checkup.",
+    due_date: "Due this month",
+    action_text: "Find In-Network Dentist",
+    target_search: "dental cleaning",
+    target_tab: "search-tab"
+  },
+  {
+    id: "notif-physical",
+    icon: "🩺",
+    badge: "DUE NOW",
+    badge_color: "#dc2626",
+    title: "Annual Preventive Wellness Physical Due",
+    coverage_note: "100% ACA Preventive ($0 Copay)",
+    message: "Under the Affordable Care Act, your comprehensive annual adult physical examination is covered at 100% with no deductible or copay. Recommended for plan year 2026.",
+    due_date: "Due within 30 days",
+    action_text: "Schedule Wellness Visit",
+    target_search: "annual physical",
+    target_tab: "search-tab"
+  },
+  {
+    id: "notif-vision",
+    icon: "👁️",
+    badge: "BENEFIT RENEWED",
+    badge_color: "#0284c7",
+    title: "Annual Vision & Eye Exam Available",
+    coverage_note: "$10 Copay Active",
+    message: "Your annual refractive vision checkup and ocular health screening benefit has renewed for 2026. Includes prescription update and digital screening.",
+    due_date: "Available Now",
+    action_text: "Find Eye Doctor",
+    target_search: "eye exam",
+    target_tab: "search-tab"
+  },
+  {
+    id: "notif-fasting",
+    icon: "⏰",
+    badge: "APPOINTMENT REMINDER",
+    badge_color: "#059669",
+    title: "Upcoming Lab Appointment: Fasting Reminder",
+    coverage_note: "Verified In-Network",
+    message: "You have a Lipid Panel scheduled for Wednesday, Nov 4 at Mercer Community Lab. Please fast for 12 hours prior to your 8:30 AM arrival (plain water only).",
+    due_date: "Wed, Nov 4 at 8:30 AM",
+    action_text: "View Appointments",
+    target_search: null,
+    target_tab: "appointments-tab"
+  }
+];
+
+function initNotifications() {
+  const bellBtn = document.getElementById("nav-bell-btn");
+  const dropdown = document.getElementById("notification-dropdown");
+  const dropdownList = document.getElementById("notif-dropdown-list");
+  const bellBadge = document.getElementById("bell-badge");
+  const viewAll = document.getElementById("view-all-notifs");
+
+  if (!bellBtn || !dropdown) return;
+
+  function renderNotifDropdown() {
+    dropdownList.innerHTML = CLIENT_NOTIFICATIONS.map(n => `
+      <div class="notif-item" data-notif-id="${n.id}">
+        <div class="notif-item-top">
+          <span style="font-size:1.3rem;">${n.icon}</span>
+          <span class="notif-item-badge" style="background:${n.badge_color}22; color:${n.badge_color};">${escapeHtml(n.badge)}</span>
+        </div>
+        <h5>${escapeHtml(n.title)}</h5>
+        <div class="notif-item-coverage">${escapeHtml(n.coverage_note)}</div>
+        <p>${escapeHtml(n.message)}</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.74rem; color:var(--text-light);">
+          <span>${escapeHtml(n.due_date)}</span>
+          <button class="notif-item-action" data-notif-search="${n.target_search || ""}" data-notif-tab="${n.target_tab || "search-tab"}">${escapeHtml(n.action_text)} ↗</button>
+        </div>
+      </div>
+    `).join("");
+
+    dropdownList.querySelectorAll(".notif-item-action").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const search = btn.dataset.notifSearch;
+        const tab = btn.dataset.notifTab;
+        dropdown.classList.add("hidden");
+        if (search) {
+          const treatmentInput = document.getElementById("treatment-input");
+          const zipInput = document.getElementById("zip-input");
+          if (treatmentInput) treatmentInput.value = search;
+          if (zipInput) zipInput.value = "08540";
+          checkTreatmentRecognition(search);
+          searchClinics();
+          document.querySelector('[data-tab="search-tab"]')?.click();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          document.querySelector(`[data-tab="${tab}"]`)?.click();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+    });
+  }
+
+  renderNotifDropdown();
+  if (bellBadge) bellBadge.textContent = CLIENT_NOTIFICATIONS.length;
+
+  bellBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target) && e.target !== bellBtn) {
+      dropdown.classList.add("hidden");
+    }
+  });
+
+  if (viewAll) {
+    viewAll.addEventListener("click", (e) => {
+      e.preventDefault();
+      dropdown.classList.add("hidden");
+      document.querySelector('[data-tab="appointments-tab"]')?.click();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+}
+
+// ==============================================================================
+// 14. MILESTONE BUTTONS (PREVENTIVE CARE ALERTS IN APPOINTMENTS TAB)
+// ==============================================================================
+
+function initMilestoneButtons() {
+  document.querySelectorAll(".notif-action-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const search = btn.dataset.targetSearch;
+      const targetTab = btn.dataset.targetTab;
+      if (search) {
+        const treatmentInput = document.getElementById("treatment-input");
+        const zipInput = document.getElementById("zip-input");
+        if (treatmentInput) treatmentInput.value = search;
+        if (zipInput) zipInput.value = "08540";
+        checkTreatmentRecognition(search);
+        searchClinics();
+      }
+      if (targetTab) {
+        document.querySelector(`[data-tab="${targetTab}"]`)?.click();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initEventHandlers();
+  initNotifications();
+  initMilestoneButtons();
   searchClinics();
   populateCalculatorSelects();
   renderAppointments();
+  renderBills();
 });

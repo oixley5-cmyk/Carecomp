@@ -1635,6 +1635,58 @@ input:checked + .toggle-slider:before {
   gap: 8px;
 }
 
+/* Calc Input */
+.calc-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  outline: none;
+  transition: var(--transition);
+}
+
+.calc-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(20, 156, 127, 0.15);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ==============================================================================
    TAB 3: PERSONALIZED COST CALCULATOR
    ============================================================================== */
@@ -2426,6 +2478,13 @@ input:checked + .toggle-slider:before {
   .guide-steps {
     grid-template-columns: 1fr;
   }
+  .milestones-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .notification-dropdown {
+    width: 320px;
+    right: -60px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2448,5 +2507,31 @@ input:checked + .toggle-slider:before {
   }
   .chat-container {
     height: 480px;
+  }
+  .milestones-grid {
+    grid-template-columns: 1fr;
+  }
+  .notification-dropdown {
+    width: 290px;
+    right: -20px;
+  }
+  .pane-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-meta {
+    grid-template-columns: 1fr;
+  }
+  .card-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .intel-body {
+    grid-template-columns: 1fr;
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .cost-summary-box {
+    grid-template-columns: 1fr;
   }
 }
