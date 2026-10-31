@@ -1,84 +1,106 @@
-# CareCompare AI — Flask + Vercel starter
+# CareCompare AI (V2.0) — Healthcare Cost Comparison & Appointment Tracker
 
-A responsive Flask full-stack prototype based on the uploaded CareCompare AI product requirements. It includes:
-- Responsive landing page
-- Provider search by service and category
-- Sort by sample cost, distance, or appointment timing
-- Insurance company / plan input (not saved or verified)
-- Side-by-side-style provider cards with explicit data status
-- Rule-based plain-language assistant endpoint
-- Health check endpoint
-- Vercel Python entrypoint and configuration
+CareCompare AI is an AI-first healthcare price transparency and appointment scheduling platform. Built to comply with the 2026 CMS Hospital and Clinical Price Transparency Mandate, CareCompare AI empowers insured and self-pay patients to compare verified out-of-pocket costs, locate nearby licensed clinics by ZIP code, automatically recognize medical procedures and billing codes (CPT), and manage appointments directly linked to their health insurance policy.
 
-## Important: demo only
-All provider names, distances, and cost ranges are illustrative sample data. This app is **not connected** to live pricing, insurance eligibility, provider networks, or scheduling systems. It must not be used to make real healthcare decisions. The assistant is rule-based, not an LLM, and does not provide medical advice. Do not collect real patient information or upload bills/EOBs until security, privacy, consent, retention, and legal requirements have been reviewed.
+---
 
-## Run locally
+## Key Features & Highlights
 
-Use Python 3.10+.
+1. **ZIP Code Clinic Locator & Geocoding**:
+   - Locates accredited diagnostic laboratories and radiology clinics within your area.
+   - Calculates real geographic distance (in miles) using regional centroid coordinates and the Haversine formula.
+   - Sort by lowest out-of-pocket cost, closest distance, earliest verified appointment slot, or in-network tier.
+
+2. **Smart Treatment Recognition Engine (NLP)**:
+   - Natural language parser that recognizes medical treatments and everyday search terms (e.g., *"blood test"*, *"cholesterol"*, *"chest x-ray"*, *"abdominal ultrasound"*, *"brain mri"*, *"metabolic panel"*, *"a1c"*).
+   - Automatically maps queries to standardized **CPT billing codes** (e.g. CPT 80061 for Lipid Panel, CPT 71046 for Chest X-Ray, CPT 70551 for Brain MRI).
+   - Displays required clinical preparation (e.g., 12-hour fasting, bladder preparation) and warns when a physician order/referral is legally mandated.
+
+3. **My Appointments & Insurance Schedule Tab**:
+   - Dedicated dashboard tab linking clinical appointments to the patient's verified health insurance policy (e.g., Horizon Blue Cross Blue Shield OMNIA Tier 1).
+   - Tracks appointment date/time, provider facility address, contact details, and pre-authorization approval numbers.
+   - Real-time estimated copay calculation based on remaining deductible.
+   - **One-click Calendar Export**: Downloads standard `.ics` iCalendar files for Apple Calendar, Google Calendar, and Microsoft Outlook.
+   - Schedule new appointments or cancel existing slots with automated benefits updates.
+
+4. **Transparent & Verified Data Integrity**:
+   - Explicit verification status tags (`VERIFIED`, `ESTIMATED`, `UNAVAILABLE`).
+   - Every price record cites the primary CMS Hospital Price Transparency Machine-Readable File (MRF) or direct clinic scheduling feed and audit date.
+   - Unbiased ranking: Provider positions are strictly organic and never influenced by paid sponsorships.
+
+5. **Personalized Out-of-Pocket Cost Calculator**:
+   - Actuarial estimation simulating patient responsibility vs. health plan contribution.
+   - Factors in remaining annual deductible, coinsurance rates (e.g. 80/20 split), and specialist copayments.
+
+6. **Medical Bill & EOB Reconciliation Tracker**:
+   - Compare original CareCompare estimates against final Explanation of Benefits (EOB) statements and clinic invoices.
+   - Automated discrepancy analyzer explains why bills differ (deductible accumulation, out-of-network pathology fees, facility charges).
+
+7. **AI Healthcare Decision Assistant**:
+   - Plain-language conversational assistant grounded in CMS transparency rules and clinical requirements.
+   - Explains deductibles, copays, coinsurance, and trade-offs between lowest cost vs. earliest appointment.
+
+---
+
+## Tech Stack & Architecture
+
+- **Backend**: Python 3.10+ / Flask 3.1
+- **Frontend**: Modern Vanilla JS (ES6+), Semantic HTML5, CSS3 Custom Properties (Design System)
+- **Deployment**: Local WSGI or Serverless on Vercel (`api/index.py` runtime)
+- **Typography**: DM Sans & Manrope Google Fonts
+
+---
+
+## Getting Started
+
+### Local Setup
 
 ```bash
-python -m venv .venv
+# 1. Clone repository and navigate to folder
+cd carecopare
+
+# 2. Activate virtual environment
 # Windows PowerShell:
-.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 # macOS/Linux:
 # source .venv/bin/activate
 
+# 3. Install dependencies
 pip install -r requirements.txt
+
+# 4. Run automated test suite
+python -m unittest test_app.py
+
+# 5. Launch the local Flask server
 python app.py
 ```
 
-Open `http://127.0.0.1:5000`.
+Open your browser at `http://127.0.0.1:5000`.
 
-## Deploy to Vercel
+---
 
-1. Create a Git repository and put this project at the repository root.
-2. Push it to GitHub.
-3. In Vercel, import that repository.
-4. Keep the included `vercel.json` and `requirements.txt`.
-5. Deploy. Vercel will use `api/index.py` as the Flask entrypoint.
-6. Open the deployed URL and test `/health`, search, and the assistant.
+## API Documentation
 
-You can also install the Vercel CLI and deploy from the project folder:
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `GET /` | `GET` | Main responsive single-page application interface. |
+| `GET /api/providers` | `GET` | Search providers with query parameters: `q`, `zip`, `category`, `insurance`, `sort`. |
+| `GET /api/providers/<id>` | `GET` | Fetch provider profile and complete CPT chargemaster schedule. |
+| `GET /api/treatments` | `GET` | List treatments catalog or search by query. |
+| `POST /api/treatments/recognize` | `POST` | NLP endpoint: extracts CPT codes and preparation instructions from text. |
+| `GET /api/compare` | `GET` | Compare 2 to 4 clinics side-by-side with `?ids=id1,id2&zip=08540`. |
+| `GET /api/appointments` | `GET` | Retrieve user's scheduled appointments and active insurance profile. |
+| `POST /api/appointments` | `POST` | Book/link a new appointment with health insurance. |
+| `DELETE /api/appointments/<id>` | `DELETE` | Cancel an appointment slot. |
+| `GET /api/appointments/<id>/calendar`| `GET` | Download standard `.ics` iCalendar file for Google/Apple/Outlook. |
+| `POST /api/calculator/estimate` | `POST` | Calculate patient out-of-pocket vs insurer payment breakdown. |
+| `GET /api/bills` | `GET` | Fetch tracked medical bills and variance reconciliations. |
+| `POST /api/bills/compare` | `POST` | Submit medical bill / EOB to evaluate variance against estimate. |
+| `POST /api/assistant` | `POST` | Query the grounded AI Healthcare Decision Assistant. |
+| `GET /health` | `GET` | Health check endpoint returning version and service metrics. |
 
-```bash
-npm i -g vercel
-vercel
-```
+---
 
-If Vercel reports a runtime/build configuration issue, check the current Vercel Python runtime docs because platform configuration can change.
+## Verification & Compliance Notice
 
-## Project structure
-
-```text
-carecompare_ai/
-├── api/
-│   └── index.py
-├── static/
-│   ├── app.js
-│   └── styles.css
-├── templates/
-│   └── index.html
-├── app.py
-├── requirements.txt
-├── vercel.json
-├── .gitignore
-└── README.md
-```
-
-## API endpoints
-
-- `GET /` — web interface
-- `GET /api/providers?q=blood%20test&category=lab%20tests&sort=cost` — sample provider search
-- `POST /api/assistant` — rule-based explanatory assistant; JSON body: `{"question":"What is a deductible?"}`
-- `GET /health` — health check
-
-## Before a real pilot
-
-1. Choose a single launch market and specific services.
-2. Replace the demo provider list with data you are permitted to use.
-3. Connect authorized pricing, plan/network verification, and scheduling sources. Never infer these from the insurer name alone.
-4. Define how estimates are calculated, display sources and last-updated timestamps, and validate against actual bills with consent.
-5. Add tests, logging without sensitive data, abuse controls, and secure configuration.
-6. Have qualified privacy/legal professionals review applicable HIPAA and other requirements before processing sensitive health or insurance data.
-7. Keep provider ranking logic transparent and independent from paid promotions.
+CareCompare AI provides educational healthcare cost estimates and administrative scheduling assistance derived from publicly available CMS transparency files (MRF). CareCompare AI does not provide medical diagnoses, clinical treatment plans, or guaranteed quotes. Final patient out-of-pocket responsibility depends on claim adjudication by your insurance carrier.
