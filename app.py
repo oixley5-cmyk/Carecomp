@@ -324,6 +324,30 @@ END:VCALENDAR
 
 
 # ==============================================================================
+# 4B. INSURANCE NOTIFICATIONS & PREVENTIVE MILESTONES API
+# ==============================================================================
+
+@app.route("/api/notifications", methods=["GET"])
+def get_notifications():
+    """Retrieve active insurance-linked preventive care reminders and due dates."""
+    notifs = database.get_notifications()
+    return jsonify({
+        "notifications": notifs,
+        "count": len(notifs),
+        "insurance_plan": "Horizon BCBS Comprehensive with Dental & Vision"
+    })
+
+
+@app.route("/api/notifications/<notification_id>/dismiss", methods=["POST"])
+def dismiss_notification(notification_id):
+    """Dismiss or mark an insurance reminder as completed."""
+    success = database.dismiss_notification(notification_id)
+    if not success:
+        return jsonify({"error": "Notification not found"}), 404
+    return jsonify({"success": True, "message": "Notification dismissed."})
+
+
+# ==============================================================================
 # 5. PERSONALIZED COST CALCULATOR API
 # ==============================================================================
 

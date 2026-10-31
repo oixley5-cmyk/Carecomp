@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -64,6 +64,33 @@
       </nav>
 
       <div class="header-user-status">
+        <!-- Notification Bell with Insurance Alerts Popover -->
+        <div class="notification-container">
+          <button class="nav-bell-btn" id="nav-bell-btn" aria-label="Insurance Preventive Alerts">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="bell-badge" id="bell-badge">3</span>
+          </button>
+          
+          <div class="notification-dropdown hidden" id="notification-dropdown">
+            <div class="notif-dropdown-header">
+              <div>
+                <strong>Insurance Preventive Alerts</strong>
+                <small>Horizon BCBS Linked Benefits</small>
+              </div>
+              <span class="notif-header-badge">3 Due</span>
+            </div>
+            <div class="notif-dropdown-list" id="notif-dropdown-list">
+              <!-- Populated via JS -->
+            </div>
+            <div class="notif-dropdown-footer">
+              <a href="#appointments-tab" class="view-all-notifs-link" id="view-all-notifs">View All Insurance Benefits â†—</a>
+            </div>
+          </div>
+        </div>
+
         <span class="insurance-pill-active">
           <span class="status-indicator-green"></span>
           <span>Horizon BCBS Active</span>
@@ -97,12 +124,13 @@
           <!-- Quick Example Chips -->
           <div class="treatment-quick-chips">
             <span class="chip-label">Quick search:</span>
+            <button class="quick-chip" data-search="dental cleaning" data-zip="08540">ðŸ¦· Yearly Dental Cleaning</button>
+            <button class="quick-chip" data-search="annual physical" data-zip="08540">ðŸ©º Annual Physical</button>
+            <button class="quick-chip" data-search="eye exam" data-zip="08540">ðŸ‘ï¸ Eye Exam</button>
             <button class="quick-chip" data-search="blood test" data-zip="08540">ðŸ©¸ Blood Test (CBC)</button>
             <button class="quick-chip" data-search="cholesterol" data-zip="08540">â¤ï¸ Cholesterol / Lipid</button>
-            <button class="quick-chip" data-search="chest xray" data-zip="08540">ðŸ« Chest X-Ray</button>
-            <button class="quick-chip" data-search="abdominal ultrasound" data-zip="08540">ðŸ“¡ Abdominal Ultrasound</button>
+            <button class="quick-chip" data-search="abdominal ultrasound" data-zip="08540">ðŸ“¡ Ultrasound</button>
             <button class="quick-chip" data-search="brain mri" data-zip="08540">ðŸ§  Brain MRI</button>
-            <button class="quick-chip" data-search="diabetes a1c" data-zip="08540">ðŸ§ª Hemoglobin A1c</button>
           </div>
         </div>
       </section>
@@ -116,13 +144,13 @@
             <div class="form-group form-treatment">
               <label for="treatment-input" class="form-label">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                Medical Treatment / Test
+                Medical Treatment / Procedure
               </label>
               <div class="input-with-icon">
                 <input 
                   type="text" 
                   id="treatment-input" 
-                  placeholder="Type any test (e.g. CBC, MRI, Ultrasound, Cholesterol, X-Ray)" 
+                  placeholder="Type any care (e.g. dental cleaning, physical, MRI, ultrasound, blood test)" 
                   autocomplete="off"
                   value=""
                 >
@@ -151,11 +179,15 @@
 
             <!-- Service Category Filter -->
             <div class="form-group form-category">
-              <label for="category-select" class="form-label">Service Category</label>
+              <label for="category-select" class="form-label">Care Category</label>
               <select id="category-select">
                 <option value="all">All Care Categories</option>
+                <option value="Dental Care">Dental Care &amp; Cleanings</option>
+                <option value="Vision Care">Vision &amp; Eye Exams</option>
+                <option value="Preventive & Primary Care">Preventive &amp; Primary Care</option>
                 <option value="Lab tests">Lab Tests &amp; Blood Work</option>
                 <option value="Imaging">Diagnostic Imaging &amp; Scans</option>
+                <option value="Specialist & Therapy">Specialist &amp; Therapy</option>
               </select>
             </div>
 
@@ -345,6 +377,74 @@
               </div>
             </li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Insurance Preventive Care Milestones & Notifications -->
+      <div class="preventive-milestones-card">
+        <div class="milestones-header">
+          <div>
+            <span class="milestones-tag">AUTOMATED INSURANCE BENEFIT ALERTS</span>
+            <h3>Preventive Care Milestones &amp; Due Dates</h3>
+            <p>Your policy covers preventive cleanings, annual exams, and screenings at 100% ($0 out-of-pocket). We track your care intervals automatically.</p>
+          </div>
+          <div class="alerts-toggle-box">
+            <label class="toggle-switch">
+              <input type="checkbox" id="insurance-alerts-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span>Insurance Reminders Active (Push &amp; Calendar)</span>
+          </div>
+        </div>
+
+        <div class="milestones-grid">
+          <!-- Dental Milestone -->
+          <div class="milestone-card due-now">
+            <div class="milestone-icon-row">
+              <span class="milestone-icon">ðŸ¦·</span>
+              <span class="milestone-badge red">DUE NOW</span>
+            </div>
+            <h4>Yearly Dental Checkup &amp; Cleaning</h4>
+            <div class="milestone-coverage">100% Covered ($0 Copay / 2 Cleanings per Year)</div>
+            <p>Covered under Horizon BCBS Dental PPO. Last cleaning was 11 months ago. Preventive exam and bitewings included.</p>
+            <div class="milestone-actions">
+              <button class="btn btn-primary btn-sm notif-action-btn" data-target-search="dental cleaning" data-target-tab="search-tab">
+                Find In-Network Dentist â†—
+              </button>
+            </div>
+          </div>
+
+          <!-- Annual Physical Milestone -->
+          <div class="milestone-card due-now">
+            <div class="milestone-icon-row">
+              <span class="milestone-icon">ðŸ©º</span>
+              <span class="milestone-badge red">DUE WITHIN 30 DAYS</span>
+            </div>
+            <h4>Annual Wellness Physical Exam</h4>
+            <div class="milestone-coverage">100% ACA Preventive ($0 Copay / $0 Deductible)</div>
+            <p>Comprehensive annual vitals, risk review, and preventive counseling with an in-network primary care doctor.</p>
+            <div class="milestone-actions">
+              <button class="btn btn-primary btn-sm notif-action-btn" data-target-search="annual physical" data-target-tab="search-tab">
+                Schedule Wellness Exam â†—
+              </button>
+            </div>
+          </div>
+
+          <!-- Vision Exam Milestone -->
+          <div class="milestone-card available">
+            <div class="milestone-icon-row">
+              <span class="milestone-icon">ðŸ‘ï¸</span>
+              <span class="milestone-badge blue">BENEFIT RENEWED</span>
+            </div>
+            <h4>Annual Routine Vision &amp; Eye Exam</h4>
+            <div class="milestone-coverage">$10 Copay Active (Vision Rider)</div>
+            <p>Annual refractive eye checkup, lens prescription verification, and digital retinal imaging.</p>
+            <div class="milestone-actions">
+              <button class="btn btn-secondary btn-sm notif-action-btn" data-target-search="eye exam" data-target-tab="search-tab">
+                Find Eye Doctor â†—
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -389,6 +389,271 @@ TREATMENTS_CATALOG: List[Dict[str, Any]] = [
         "typical_cash_range": (380, 950),
         "typical_in_network_range": (240, 580),
         "description": "Cross-sectional X-ray computed tomography providing comprehensive diagnostic imaging of internal organs and abdominal vasculature."
+    },
+    # ==================== DENTAL CARE & YEARLY CHECKUPS ====================
+    {
+        "id": "dental_cleaning",
+        "code": "CDT D1110",
+        "name": "Routine Dental Cleaning & Prophylaxis (Adult)",
+        "category": "Dental Care",
+        "aliases": ["dental cleaning", "teeth cleaning", "dental checkup", "dental", "dentist", "cleaning", "teeth", "yearly dental", "annual dental", "prophylaxis", "oral cleaning", "teeth checkup", "yearly dental checkup"],
+        "order_required": False,
+        "order_note": "Covered 100% twice per year ($0 copay) under standard dental PPO / Horizon BCBS Dental.",
+        "prep": "Brush and floss before appointment. Arrive 10 minutes early to review dental history.",
+        "typical_cash_range": (85, 175),
+        "typical_in_network_range": (0, 0),
+        "description": "Comprehensive scaling and polishing to remove plaque, calculus (tartar), and surface stains to prevent periodontal disease."
+    },
+    {
+        "id": "dental_exam",
+        "code": "CDT D0120",
+        "name": "Periodic Oral Examination / Dental Checkup",
+        "category": "Dental Care",
+        "aliases": ["dental exam", "oral exam", "teeth exam", "dental inspection", "dentist checkup", "oral evaluation"],
+        "order_required": False,
+        "order_note": "100% preventive coverage ($0 copay) under dental benefits every 6-12 months.",
+        "prep": "Provide list of current medications and any history of tooth sensitivity.",
+        "typical_cash_range": (50, 110),
+        "typical_in_network_range": (0, 0),
+        "description": "Thorough visual examination of hard and soft tissues of the mouth, screening for tooth decay, gum disease, and oral cancer."
+    },
+    {
+        "id": "dental_xrays",
+        "code": "CDT D0274",
+        "name": "Bitewing Dental X-Rays (4 Radiographic Images)",
+        "category": "Dental Care",
+        "aliases": ["dental xrays", "bitewing", "teeth xray", "dental bitewing", "dental radiographs"],
+        "order_required": False,
+        "order_note": "Covered at 100% preventive once per calendar year under major dental plans.",
+        "prep": "Remove tongue or lip jewelry and metal glasses prior to digital sensor imaging.",
+        "typical_cash_range": (60, 130),
+        "typical_in_network_range": (0, 0),
+        "description": "High-resolution digital radiographs showing the crowns of back teeth to detect interproximal cavities between teeth."
+    },
+    {
+        "id": "dental_filling",
+        "code": "CDT D2391",
+        "name": "Composite Resin Dental Filling (Tooth-Colored, 1-2 Surfaces)",
+        "category": "Dental Care",
+        "aliases": ["dental filling", "cavity filling", "tooth filling", "filling", "composite filling"],
+        "order_required": False,
+        "order_note": "Covered at 80% under Basic Dental Services; typically 20% coinsurance after deductible.",
+        "prep": "Eat a light meal prior to appointment if local anesthesia is scheduled.",
+        "typical_cash_range": (140, 290),
+        "typical_in_network_range": (28, 58),
+        "description": "Restores decayed or damaged tooth structure using tooth-colored composite resin bonded directly to enamel."
+    },
+    {
+        "id": "dental_extraction",
+        "code": "CDT D7140",
+        "name": "Routine Tooth Extraction (Erupted Tooth)",
+        "category": "Dental Care",
+        "aliases": ["tooth extraction", "pull tooth", "extraction", "tooth pull", "remove tooth"],
+        "order_required": False,
+        "order_note": "Dental pre-determination recommended for non-emergency extractions.",
+        "prep": "Follow pre-operative instructions; arrange transportation if sedation is chosen.",
+        "typical_cash_range": (150, 320),
+        "typical_in_network_range": (35, 75),
+        "description": "Surgical or routine removal of an erupted tooth that cannot be restored due to trauma, decay, or crowding."
+    },
+    # ==================== VISION & EYE CARE ====================
+    {
+        "id": "eye_exam",
+        "code": "CPT 92004",
+        "name": "Comprehensive Annual Eye & Vision Examination",
+        "category": "Vision Care",
+        "aliases": ["eye exam", "vision exam", "yearly eye exam", "optometrist", "vision test", "glasses exam", "eye checkup", "ophthalmology exam"],
+        "order_required": False,
+        "order_note": "Covered once every 12 months with a standard $10-$15 copay under routine vision riders.",
+        "prep": "Bring current eyeglasses or contact lens prescription boxes. Sunglasses recommended if pupils are dilated.",
+        "typical_cash_range": (90, 195),
+        "typical_in_network_range": (10, 15),
+        "description": "Complete visual acuity test, refraction for eyeglasses, binocular coordination, and ocular health screening for glaucoma and cataracts."
+    },
+    {
+        "id": "retinal_scan",
+        "code": "CPT 92250",
+        "name": "Digital Retinal Fundus Imaging (Optomap)",
+        "category": "Vision Care",
+        "aliases": ["retinal scan", "retina photo", "fundus photo", "optomap", "retinal screening"],
+        "order_required": False,
+        "order_note": "Often covered at 100% for diabetic patients; small $25 elective copay for standard vision plans.",
+        "prep": "No eye drop dilation required in ultra-widefield imaging.",
+        "typical_cash_range": (35, 80),
+        "typical_in_network_range": (15, 25),
+        "description": "Ultra-widefield digital photography capturing up to 82% of the retina in a single capture to spot systemic and ocular disease early."
+    },
+    # ==================== PREVENTIVE & PRIMARY CARE ====================
+    {
+        "id": "annual_physical",
+        "code": "CPT 99395",
+        "name": "Annual Preventive Physical Examination (Adult Wellness Visit)",
+        "category": "Preventive & Primary Care",
+        "aliases": ["physical", "annual physical", "yearly physical", "yearly checkup", "wellness exam", "doctor checkup", "checkup", "preventive exam", "routine physical"],
+        "order_required": False,
+        "order_note": "MANDATED 100% FREE ($0 Copay / $0 Deductible) under ACA preventive healthcare guidelines for in-network providers.",
+        "prep": "Fast if routine bloodwork is drawn concurrently. Bring a list of current prescriptions and vaccination dates.",
+        "typical_cash_range": (160, 320),
+        "typical_in_network_range": (0, 0),
+        "description": "Comprehensive annual head-to-toe clinical assessment, biometric vitals review (BP, BMI), lifestyle risk screening, and preventive health counseling."
+    },
+    {
+        "id": "flu_vaccine",
+        "code": "CPT 90686",
+        "name": "Influenza Quadrivalent Vaccine (Flu Shot)",
+        "category": "Preventive & Primary Care",
+        "aliases": ["flu shot", "flu vaccine", "influenza vaccine", "flu jab", "immunization"],
+        "order_required": False,
+        "order_note": "Covered 100% with $0 copay at all in-network clinics and pharmacies.",
+        "prep": "Wear short sleeves for easy deltoid muscle injection. Alert staff to any severe egg allergies.",
+        "typical_cash_range": (35, 65),
+        "typical_in_network_range": (0, 0),
+        "description": "Protects against four circulating influenza virus strains (two A and two B variants) recommended for annual immunization."
+    },
+    {
+        "id": "colonoscopy",
+        "code": "CPT 45378",
+        "name": "Screening Colonoscopy (Preventive Colorectal Examination)",
+        "category": "Preventive & Primary Care",
+        "aliases": ["colonoscopy", "colon screening", "bowel screening", "colorectal exam"],
+        "order_required": True,
+        "order_note": "100% ACA Preventive ($0 copay) for adults 45+ when performed as an in-network screening.",
+        "prep": "Clear liquid diet and oral bowel prep laxative solution taken 24 hours prior according to physician protocol.",
+        "typical_cash_range": (1100, 2800),
+        "typical_in_network_range": (0, 0),
+        "description": "Endoscopic examination of the entire large bowel to detect and remove precancerous adenomatous polyps."
+    },
+    {
+        "id": "well_woman",
+        "code": "CPT 99396",
+        "name": "Annual Well-Woman Preventive Visit (Pap & Pelvic Exam)",
+        "category": "Preventive & Primary Care",
+        "aliases": ["well woman", "pap smear", "pap test", "cervical screening", "gyn checkup"],
+        "order_required": False,
+        "order_note": "100% covered annually with $0 copay under ACA women's preventive health services.",
+        "prep": "Avoid intercourse, douching, or vaginal medications for 48 hours prior to Pap smear collection.",
+        "typical_cash_range": (140, 280),
+        "typical_in_network_range": (0, 0),
+        "description": "Clinical breast exam, bimanual pelvic evaluation, and Pap cytology/HPV screening for cervical health."
+    },
+    # ==================== SPECIALIST & THERAPY ====================
+    {
+        "id": "pt_eval",
+        "code": "CPT 97161",
+        "name": "Physical Therapy Comprehensive Initial Evaluation",
+        "category": "Specialist & Therapy",
+        "aliases": ["physical therapy", "pt", "pt eval", "physiotherapy", "rehab eval", "sports therapy"],
+        "order_required": False,
+        "order_note": "Direct access allowed in NJ/NY for up to 30 days; physician referral needed thereafter by some HMO plans.",
+        "prep": "Wear athletic clothing permitting joint range-of-motion assessments.",
+        "typical_cash_range": (120, 250),
+        "typical_in_network_range": (25, 45),
+        "description": "Detailed functional evaluation of musculoskeletal impairments, joint mobility, muscular strength, and posture."
+    },
+    {
+        "id": "psych_therapy",
+        "code": "CPT 90834",
+        "name": "Individual Psychotherapy & Counseling (45 Minutes)",
+        "category": "Specialist & Therapy",
+        "aliases": ["therapy", "counseling", "psychotherapy", "mental health", "therapist", "psychologist"],
+        "order_required": False,
+        "order_note": "Parity coverage under Mental Health Parity Act; standard specialist copay ($20-$35).",
+        "prep": "No physical preparation required. Confidential telehealth or in-person session.",
+        "typical_cash_range": (120, 225),
+        "typical_in_network_range": (20, 35),
+        "description": "Evidence-based clinical cognitive and behavioral psychotherapy addressing anxiety, depression, stress, and relational health."
+    },
+    {
+        "id": "derma_exam",
+        "code": "CPT 99203",
+        "name": "Dermatology Full-Body Skin Cancer Examination",
+        "category": "Specialist & Therapy",
+        "aliases": ["dermatology", "skin check", "mole check", "skin cancer screening", "dermatologist"],
+        "order_required": False,
+        "order_note": "Specialist office copay applies; referral required only for strict HMO networks.",
+        "prep": "Remove nail polish and makeup before exam so skin and nail beds can be examined.",
+        "typical_cash_range": (150, 310),
+        "typical_in_network_range": (35, 55),
+        "description": "Dermascopic head-to-toe examination of all moles, lesions, and pigmented areas to detect early melanoma and basal cell carcinomas."
+    },
+    {
+        "id": "cardiac_ekg",
+        "code": "CPT 93000",
+        "name": "12-Lead Resting Electrocardiogram (EKG / ECG)",
+        "category": "Specialist & Therapy",
+        "aliases": ["ekg", "ecg", "heart test", "electrocardiogram", "cardiac ekg"],
+        "order_required": True,
+        "order_note": "Clinical physician order required.",
+        "prep": "Do not apply oily lotions or body powders on the chest on test day.",
+        "typical_cash_range": (45, 110),
+        "typical_in_network_range": (15, 35),
+        "description": "Measures electrical activity and rhythm of heart muscle to evaluate arrhythmias, previous heart attacks, or ischemia."
+    },
+    {
+        "id": "echocardiogram",
+        "code": "CPT 93306",
+        "name": "Transthoracic Echocardiogram (Complete Cardiac Echo)",
+        "category": "Specialist & Therapy",
+        "aliases": ["echo", "echocardiogram", "heart ultrasound", "cardiac echo"],
+        "order_required": True,
+        "order_note": "Cardiology or PCP order required. Prior-authorization verified.",
+        "prep": "No fasting required. Wear comfortable two-piece clothing.",
+        "typical_cash_range": (420, 1100),
+        "typical_in_network_range": (180, 420),
+        "description": "Cardiac ultrasound creating real-time moving images of heart chambers, pumping ejection fraction, and valve leaflets."
+    },
+    {
+        "id": "dexa_scan",
+        "code": "CPT 77080",
+        "name": "DEXA Bone Mineral Density Scan (Dual-Energy X-Ray)",
+        "category": "Specialist & Therapy",
+        "aliases": ["dexa scan", "bone density", "osteoporosis scan", "dexa", "bone scan"],
+        "order_required": True,
+        "order_note": "Covered 100% every 24 months for women 65+ or postmenopausal women at high fracture risk.",
+        "prep": "Avoid calcium supplements for 24 hours prior. Wear pants with elastic waistband and no metal zippers.",
+        "typical_cash_range": (110, 260),
+        "typical_in_network_range": (0, 45),
+        "description": "Measures bone mineral density in hip and lumbar spine to diagnose osteopenia, osteoporosis, and calculate 10-year fracture risk."
+    },
+    # ==================== ADVANCED LAB PANELS ====================
+    {
+        "id": "testosterone",
+        "code": "CPT 84403",
+        "name": "Total Testosterone Serum Level (LC/MS-MS)",
+        "category": "Lab tests",
+        "aliases": ["testosterone", "t levels", "low t", "testosterone blood test", "hormone panel"],
+        "order_required": False,
+        "order_note": "Morning specimen recommended; clinical diagnosis needed for insurance payment.",
+        "prep": "Draw specimen between 7:00 AM and 10:00 AM when circulating testosterone levels peak.",
+        "typical_cash_range": (45, 110),
+        "typical_in_network_range": (24, 52),
+        "description": "Measures circulating testosterone in blood to evaluate fatigue, hypogonadism, libido, or hormonal imbalance."
+    },
+    {
+        "id": "std_panel",
+        "code": "CPT 87491",
+        "name": "Comprehensive STI / STD Screening Panel (HIV, Syphilis, Chlamydia, Gonorrhea)",
+        "category": "Lab tests",
+        "aliases": ["std test", "sti test", "std panel", "sexual health screen", "chlamydia test", "hiv test"],
+        "order_required": False,
+        "order_note": "100% covered preventive benefit under ACA guidelines for routine annual screenings.",
+        "prep": "Do not urinate for at least 1 hour prior to clean-catch urine nucleic acid amplification test.",
+        "typical_cash_range": (95, 230),
+        "typical_in_network_range": (0, 0),
+        "description": "Multi-pathogen diagnostic screening using blood serum antibodies and urine NAAT testing."
+    },
+    {
+        "id": "allergy_test",
+        "code": "CPT 86003",
+        "name": "Quantitative Specific IgE Allergen Blood Panel (Food & Airborne)",
+        "category": "Lab tests",
+        "aliases": ["allergy test", "allergy panel", "ige blood test", "food allergy test", "environmental allergy"],
+        "order_required": False,
+        "order_note": "Physician order recommended; direct access wellness testing available.",
+        "prep": "Unlike skin prick tests, you DO NOT need to stop taking antihistamine medications before this blood test.",
+        "typical_cash_range": (120, 290),
+        "typical_in_network_range": (40, 95),
+        "description": "Measures circulating allergen-specific Immunoglobulin E (IgE) antibodies to identify food, pollen, mold, and pet dander triggers."
     }
 ]
 
@@ -752,6 +1017,138 @@ PROVIDERS_MASTER: List[Dict[str, Any]] = [
             "abdomen_ct": {"cash": 395, "negotiated": 260, "status": "VERIFIED"},
         },
         "notes": "Lowest self-pay and in-network imaging rates in Middlesex county."
+    },
+    {
+        "id": "princeton-dental",
+        "name": "Princeton Dental Arts & Preventive Care",
+        "facility_type": "Comprehensive General & Preventive Dental Practice",
+        "category": "Dental Care",
+        "address": "256 Nassau St, Suite 2",
+        "city": "Princeton",
+        "state": "NJ",
+        "zip": "08540",
+        "lat": 40.3520,
+        "lon": -74.6540,
+        "phone": "(609) 555-0899",
+        "website": "https://princetondentalarts.example.com",
+        "booking_url": "https://princetondentalarts.example.com/appointments",
+        "hours": "Mon–Thu: 8:00 AM – 6:00 PM | Fri: 8:00 AM – 2:00 PM",
+        "next_verified_slot": "Tomorrow at 11:00 AM",
+        "verification_badge": "VERIFIED",
+        "data_source": "Dental Transparency Contracted Fee Disclosure · Verified Oct 2026",
+        "last_updated": "October 2026",
+        "accepted_plans": {
+            "Blue Cross Blue Shield": {"network": "Verified In-Network", "tier": "Dental PPO Tier 1 (100% Preventive)", "copay": 0},
+            "Aetna": {"network": "Verified In-Network", "tier": "Dental PPO Network", "copay": 0},
+            "Cigna": {"network": "Verified In-Network", "tier": "Total Dental Choice", "copay": 0},
+            "UnitedHealthcare": {"network": "Verified In-Network", "tier": "Dental Premier", "copay": 0},
+        },
+        "prices": {
+            "dental_cleaning": {"cash": 110, "negotiated": 0, "status": "VERIFIED"},
+            "dental_exam": {"cash": 65, "negotiated": 0, "status": "VERIFIED"},
+            "dental_xrays": {"cash": 75, "negotiated": 0, "status": "VERIFIED"},
+            "dental_filling": {"cash": 180, "negotiated": 35, "status": "VERIFIED"},
+            "dental_extraction": {"cash": 195, "negotiated": 45, "status": "VERIFIED"},
+        },
+        "notes": "Two routine cleanings and exams 100% fully covered per year with $0 copay under Horizon BCBS Dental."
+    },
+    {
+        "id": "jersey-vision",
+        "name": "Central Jersey Vision & Ophthalmology Center",
+        "facility_type": "Optometry & Comprehensive Ophthalmology Clinic",
+        "category": "Vision Care",
+        "address": "666 Plainsboro Rd, Bldg 200",
+        "city": "Plainsboro",
+        "state": "NJ",
+        "zip": "08536",
+        "lat": 40.3315,
+        "lon": -74.5910,
+        "phone": "(609) 555-0740",
+        "website": "https://jerseyvisioncare.example.com",
+        "booking_url": "https://jerseyvisioncare.example.com/schedule",
+        "hours": "Mon–Fri: 8:30 AM – 5:30 PM | Sat: 9:00 AM – 1:00 PM",
+        "next_verified_slot": "Thursday at 2:30 PM",
+        "verification_badge": "VERIFIED",
+        "data_source": "Vision Benefit Clearinghouse Fee Schedule · Verified Oct 2026",
+        "last_updated": "October 2026",
+        "accepted_plans": {
+            "Blue Cross Blue Shield": {"network": "Verified In-Network", "tier": "Vision Care Rider", "copay": 10},
+            "Aetna": {"network": "Verified In-Network", "tier": "Vision Preferred", "copay": 10},
+            "Cigna": {"network": "Verified In-Network", "tier": "Vision Network", "copay": 15},
+            "UnitedHealthcare": {"network": "Verified In-Network", "tier": "Spectera Vision", "copay": 10},
+        },
+        "prices": {
+            "eye_exam": {"cash": 120, "negotiated": 10, "status": "VERIFIED"},
+            "retinal_scan": {"cash": 45, "negotiated": 15, "status": "VERIFIED"},
+        },
+        "notes": "Digital retinal Optomap imaging available without pupil dilation drops."
+    },
+    {
+        "id": "mercer-primary",
+        "name": "Mercer Family Medicine & Wellness",
+        "facility_type": "Primary Care & Preventive Medicine Group",
+        "category": "Preventive & Primary Care",
+        "address": "1230 Parkway Ave, Suite 101",
+        "city": "Lawrenceville",
+        "state": "NJ",
+        "zip": "08648",
+        "lat": 40.2810,
+        "lon": -74.7410,
+        "phone": "(609) 555-0922",
+        "website": "https://mercerfamilymed.example.org",
+        "booking_url": "https://mercerfamilymed.example.org/portal",
+        "hours": "Mon–Fri: 7:30 AM – 6:30 PM | Sat: 8:00 AM – 12:00 PM",
+        "next_verified_slot": "Wednesday at 10:15 AM",
+        "verification_badge": "VERIFIED",
+        "data_source": "ACA Preventive Compliance Mandate File · Verified Oct 2026",
+        "last_updated": "October 2026",
+        "accepted_plans": {
+            "Blue Cross Blue Shield": {"network": "Verified In-Network", "tier": "OMNIA Tier 1 (100% ACA Preventive)", "copay": 0},
+            "Aetna": {"network": "Verified In-Network", "tier": "Tier 1 Choice", "copay": 0},
+            "Cigna": {"network": "Verified In-Network", "tier": "Open Access", "copay": 0},
+            "UnitedHealthcare": {"network": "Verified In-Network", "tier": "Choice Plus Tier 1", "copay": 0},
+        },
+        "prices": {
+            "annual_physical": {"cash": 220, "negotiated": 0, "status": "VERIFIED"},
+            "flu_vaccine": {"cash": 45, "negotiated": 0, "status": "VERIFIED"},
+            "colonoscopy": {"cash": 1400, "negotiated": 0, "status": "VERIFIED"},
+            "well_woman": {"cash": 190, "negotiated": 0, "status": "VERIFIED"},
+            "cardiac_ekg": {"cash": 65, "negotiated": 20, "status": "VERIFIED"},
+            "derma_exam": {"cash": 175, "negotiated": 40, "status": "VERIFIED"},
+        },
+        "notes": "Annual physical examinations and routine vaccinations covered at 100% with $0 copay."
+    },
+    {
+        "id": "plainsboro-pt",
+        "name": "Plainsboro Physical Therapy & Sports Rehab",
+        "facility_type": "Outpatient Musculoskeletal Rehabilitation Facility",
+        "category": "Specialist & Therapy",
+        "address": "300 Medical Center Dr, Suite 105",
+        "city": "Plainsboro",
+        "state": "NJ",
+        "zip": "08536",
+        "lat": 40.3360,
+        "lon": -74.5860,
+        "phone": "(609) 555-0480",
+        "website": "https://plainsboropt.example.com",
+        "booking_url": "https://plainsboropt.example.com/evaluations",
+        "hours": "Mon–Fri: 7:00 AM – 7:30 PM",
+        "next_verified_slot": "Tomorrow at 3:00 PM",
+        "verification_badge": "VERIFIED",
+        "data_source": "Contracted Outpatient Physical Therapy Fee Schedule · Verified Oct 2026",
+        "last_updated": "October 2026",
+        "accepted_plans": {
+            "Blue Cross Blue Shield": {"network": "Verified In-Network", "tier": "OMNIA Tier 1", "copay": 25},
+            "Aetna": {"network": "Verified In-Network", "tier": "Standard In-Network", "copay": 30},
+            "Cigna": {"network": "Verified In-Network", "tier": "In-Network", "copay": 30},
+            "UnitedHealthcare": {"network": "Verified In-Network", "tier": "Choice Tier 1", "copay": 25},
+        },
+        "prices": {
+            "pt_eval": {"cash": 160, "negotiated": 30, "status": "VERIFIED"},
+            "dexa_scan": {"cash": 150, "negotiated": 35, "status": "VERIFIED"},
+            "psych_therapy": {"cash": 150, "negotiated": 25, "status": "VERIFIED"},
+        },
+        "notes": "Direct access: no referral required for initial 30 days of physical therapy."
     }
 ]
 
@@ -840,6 +1237,87 @@ INITIAL_APPOINTMENTS: List[Dict[str, Any]] = [
 
 # Mutable runtime list of appointments
 USER_APPOINTMENTS = list(INITIAL_APPOINTMENTS)
+
+
+# ==============================================================================
+# 4B. INSURANCE-LINKED PREVENTIVE NOTIFICATIONS & REMINDERS ENGINE
+# ==============================================================================
+
+INSURANCE_NOTIFICATIONS: List[Dict[str, Any]] = [
+    {
+        "id": "notif-dental",
+        "category": "Dental Care",
+        "title": "Yearly Dental Checkup & Routine Cleaning Due",
+        "icon": "🦷",
+        "badge": "DUE NOW",
+        "badge_color": "#dc2626",
+        "insurance_plan": "Horizon BCBS Dental PPO",
+        "coverage_note": "100% Covered ($0 Copay / $0 Deductible)",
+        "message": "Your dental benefits cover two routine cleanings and one comprehensive exam per calendar year at 100% coverage ($0 out-of-pocket). You are due for your 6-month checkup.",
+        "due_date": "Due this month",
+        "action_text": "Find In-Network Dentist",
+        "target_treatment": "dental_cleaning",
+        "target_search": "dental cleaning",
+        "dismissed": False
+    },
+    {
+        "id": "notif-physical",
+        "category": "Preventive & Primary Care",
+        "title": "Annual Preventive Wellness Physical Due",
+        "icon": "🩺",
+        "badge": "DUE NOW",
+        "badge_color": "#dc2626",
+        "insurance_plan": "Horizon BCBS OMNIA Tier 1",
+        "coverage_note": "100% ACA Preventive ($0 Copay)",
+        "message": "Under the Affordable Care Act, your comprehensive annual adult physical examination is covered at 100% with no deductible or copay. Recommended for plan year 2026.",
+        "due_date": "Due within 30 days",
+        "action_text": "Schedule Wellness Visit",
+        "target_treatment": "annual_physical",
+        "target_search": "annual physical",
+        "dismissed": False
+    },
+    {
+        "id": "notif-vision",
+        "category": "Vision Care",
+        "title": "Annual Vision & Eye Exam Available",
+        "icon": "👁️",
+        "badge": "BENEFIT RENEWED",
+        "badge_color": "#0284c7",
+        "insurance_plan": "Horizon BCBS Vision Care Rider",
+        "coverage_note": "$10 Copay Active",
+        "message": "Your annual refractive vision checkup and ocular health screening benefit has renewed for 2026. Includes prescription update and digital screening.",
+        "due_date": "Available Now",
+        "action_text": "Find Eye Doctor",
+        "target_treatment": "eye_exam",
+        "target_search": "eye exam",
+        "dismissed": False
+    },
+    {
+        "id": "notif-fasting",
+        "category": "Lab tests",
+        "title": "Upcoming Lab Appointment: Fasting Reminder",
+        "icon": "🩸",
+        "badge": "APPOINTMENT REMINDER",
+        "badge_color": "#059669",
+        "insurance_plan": "Horizon BCBS OMNIA Tier 1",
+        "coverage_note": "Verified In-Network",
+        "message": "You have a Lipid Panel scheduled for Wednesday, Nov 4 at Mercer Community Lab. Please fast for 12 hours prior to your 8:30 AM arrival (plain water only).",
+        "due_date": "Wed, Nov 4 at 8:30 AM",
+        "action_text": "View Prep Checklist",
+        "target_tab": "appointments-tab",
+        "dismissed": False
+    }
+]
+
+def get_notifications() -> List[Dict[str, Any]]:
+    return [n for n in INSURANCE_NOTIFICATIONS if not n.get("dismissed", False)]
+
+def dismiss_notification(notif_id: str) -> bool:
+    for n in INSURANCE_NOTIFICATIONS:
+        if n["id"] == notif_id:
+            n["dismissed"] = True
+            return True
+    return False
 
 
 # ==============================================================================
@@ -1133,6 +1611,14 @@ def answer_assistant_query(question: str, context: Optional[Dict[str, Any]] = No
     q = (question or "").strip().lower()
     if not q:
         return "I can explain healthcare costs, appointment timings, doctor order requirements, or insurance terms. How can I assist you today?"
+
+    # Check for dental checkups & notifications
+    if any(k in q for k in ["dental", "teeth", "dentist", "cleaning", "yearly dental", "notification", "reminder"]):
+        return (
+            "Yes! CareCompare AI tracks your **yearly preventive dental checkups and cleanings** directly through your linked insurance benefits. "
+            "Under standard dental plans (like Horizon BCBS Dental PPO), you receive **two routine prophylaxis cleanings and one comprehensive exam per year covered at 100% ($0 out-of-pocket)**. "
+            "Our automated insurance notification engine alerts you when your 6-month or annual cleaning is due and lets you schedule directly with in-network dentists."
+        )
 
     # Check for appointments & timings
     if any(k in q for k in ["appointment", "timing", "schedule", "track", "calendar", "slot", "when can i go"]):
